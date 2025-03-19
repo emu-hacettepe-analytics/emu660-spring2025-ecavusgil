@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.551">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>[Student xxxx]’s Analytics Lab - Assignment 1</title>
+<title>Assignment 1 – Ece’s Analytics Lab</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -71,12 +37,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-e7559c98a1ad99f6c9d81d4dacc491c9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -109,7 +73,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
+<body class="docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -117,11 +81,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">[Student xxxx]’s Analytics Lab</span>
+    <span class="navbar-title">Ece’s Analytics Lab</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -139,7 +103,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">My Posts</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-emu660-coursework" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-emu660-coursework" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">EMU660 Coursework</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-emu660-coursework">    
@@ -155,74 +119,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools tools-wide">
-    <a href="https://twitter.com" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
-    <a href="https://twitter.com" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
-    <a href="https://linkedin.com" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/ecavusgil" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://www.linkedin.com/in/ece-%C3%A7avu%C5%9Fgil-91304218a/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../assignments/assignment-1.html">Assignment 1</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../assignments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">My Assignments</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../assignments/assignment-1.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Assignment 1</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../assignments/assignment-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Assignment 2</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
     <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#assignment-1" id="toc-assignment-1" class="nav-link active" data-scroll-target="#assignment-1">Assignment 1</a>
-  <ul class="collapse">
-  <li><a href="#a" id="toc-a" class="nav-link" data-scroll-target="#a">(a)</a></li>
-  <li><a href="#b" id="toc-b" class="nav-link" data-scroll-target="#b">(b)</a></li>
-  </ul></li>
+  <li><a href="#a-a-brief-summary-for-mr.-demirtas-speech" id="toc-a-a-brief-summary-for-mr.-demirtas-speech" class="nav-link active" data-scroll-target="#a-a-brief-summary-for-mr.-demirtas-speech">(a) A brief summary for Mr.&nbsp;Demirtas` speech;</a></li>
+  <li><a href="#b-mtcars-dataset" id="toc-b-mtcars-dataset" class="nav-link" data-scroll-target="#b-mtcars-dataset">(b) “mtcars” Dataset</a></li>
+  <li><a href="#c-na_example-dataset" id="toc-c-na_example-dataset" class="nav-link" data-scroll-target="#c-na_example-dataset">(c) “na_example” Dataset</a></li>
   </ul>
 </nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -246,23 +166,956 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="assignment-1" class="level1">
-<h1>Assignment 1</h1>
+<p>My first assignment has three parts.</p>
+<section id="a-a-brief-summary-for-mr.-demirtas-speech" class="level2">
+<h2 class="anchored" data-anchor-id="a-a-brief-summary-for-mr.-demirtas-speech">(a) A brief summary for <a href="https://www.youtube.com/watch?v=cUPtQEyaswM">Mr.&nbsp;Demirtas` speech;</a></h2>
+<p>Mr.Demirtas, in his talk, first briefly introduced himself, his background, and his research areas (Replenishment allocation problems, simulation, autonomous vehicles), as well as his work at Invent.ai. The talk can be divided into two parts. In the first part, the definition of data science was given, and its stages were enriched with examples. In the second part, Mr.&nbsp;Demirtas briefly discussed his doctoral thesis and then answered questions about artificial intelligence and data science.</p>
+<p>Data science does not always provide exact answers. The key is to ask the right questions, compare the results with the real world, and update models to analyze data correctly. Artificial intelligence and machine learning are tools within data science, but data science is a broader field. Additionally, algorithms and modeling approaches can vary significantly depending on the problem. Data science uses models, algorithms, and analytical techniques to extract meaningful insights from data. Although it has become one of the most popular professions in recent years, artificial intelligence cannot replace data science because the human factor, interpretation, and decision-making processes play a critical role.</p>
+<p>The data science process consists of problem definition, data collection, exploratory data analysis (EDA), modeling, evaluation, and analyzing results. Problem definition ensures a proper start. For example, Abraham Wald’s analysis of the reasons for the bombing aircraft crashes during World War II illustrates this step. Data can be collected from sources such as sensors and databases. The collected data can be structured or unstructured. Without quality data, it is difficult to obtain accurate results. In the exploratory data analysis (EDA) phase, visualization is an essential tool for understanding the data. For instance, in 1854, Dr.&nbsp;John Snow proved that cholera in London spread through water, not air, by analyzing data.</p>
+<p>In the model building phase, mathematical models and algorithms are used to derive insights from the data, make predictions, and generate solutions. The fundamental techniques include descriptive (descriptive), predictive (predictive), and prescriptive (prescriptive) analysis. For instance, the weather prediction model developed by Lewis Fry Richardson in 1932 attempted to solve a long-standing problem with the limited tools of that time. Today, however, such problems can be solved in much less time, highlighting the progress of technology and the potential solutions that may emerge in the future. Another example is the mathematical model developed during World War II to ensure sufficient nutrition for soldiers. During the evaluation phase of the model, its success is tested, and issues such as overfitting (when the model memorizes training data too closely) or underfitting (when the model is too simplistic) are analyzed. For example, IBM’s Deep Blue computer tried to win against chess champion Garry Kasparov by memorizing all his moves. However, Kasparov’s unexpected moves revealed the model’s limited learning structure. Finally, during the Deployment &amp; Live Performance stage, the model is integrated into real-world applications, and its performance is monitored. It is important for systems dealing with big data to manage real-time errors and to be scalable.</p>
+<p>At the end of his talk, Mr.&nbsp;Demirtas discussed his doctoral research, which uses the Cellular Automaton Model to explore how autonomous vehicles can reduce traffic congestion. The goal is to minimize traffic buildup caused by stop-and-go driving or lane changes. The core objective of the thesis is to control when autonomous vehicles should merge, separate, and adjust their speed to optimize traffic flow. By properly guiding autonomous vehicles, maximum efficiency in traffic can be achieved.</p>
+</section>
+<section id="b-mtcars-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="b-mtcars-dataset">(b) “mtcars” Dataset</h2>
+<p>Exploring Statistical Summaries with Custom Functions and Iteration Methods;</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<pre><code>[1] "Summary for given data; "
+[1] "mpg"
+$Min.
+[1] 10.4
+
+$`1st Qu.`
+[1] 15.425
+
+$Median
+[1] 19.2
+
+$`3rd Qu.`
+[1] 22.8
+
+$Max.
+[1] 33.9
+
+$Mean.
+[1] 20.09062
+
+$Var.
+[1] 36.3241
+
+[1] "Summary for given data; "
+[1] "cyl"
+$Min.
+[1] 4
+
+$`1st Qu.`
+[1] 4
+
+$Median
+[1] 6
+
+$`3rd Qu.`
+[1] 8
+
+$Max.
+[1] 8
+
+$Mean.
+[1] 6.1875
+
+$Var.
+[1] 3.189516
+
+[1] "Summary for given data; "
+[1] "disp"
+$Min.
+[1] 71.1
+
+$`1st Qu.`
+[1] 120.825
+
+$Median
+[1] 196.3
+
+$`3rd Qu.`
+[1] 326
+
+$Max.
+[1] 472
+
+$Mean.
+[1] 230.7219
+
+$Var.
+[1] 15360.8
+
+[1] "Summary for given data; "
+[1] "hp"
+$Min.
+[1] 52
+
+$`1st Qu.`
+[1] 96.5
+
+$Median
+[1] 123
+
+$`3rd Qu.`
+[1] 180
+
+$Max.
+[1] 335
+
+$Mean.
+[1] 146.6875
+
+$Var.
+[1] 4700.867
+
+[1] "Summary for given data; "
+[1] "drat"
+$Min.
+[1] 2.76
+
+$`1st Qu.`
+[1] 3.08
+
+$Median
+[1] 3.695
+
+$`3rd Qu.`
+[1] 3.92
+
+$Max.
+[1] 4.93
+
+$Mean.
+[1] 3.596563
+
+$Var.
+[1] 0.2858814
+
+[1] "Summary for given data; "
+[1] "wt"
+$Min.
+[1] 1.513
+
+$`1st Qu.`
+[1] 2.58125
+
+$Median
+[1] 3.325
+
+$`3rd Qu.`
+[1] 3.61
+
+$Max.
+[1] 5.424
+
+$Mean.
+[1] 3.21725
+
+$Var.
+[1] 0.957379
+
+[1] "Summary for given data; "
+[1] "qsec"
+$Min.
+[1] 14.5
+
+$`1st Qu.`
+[1] 16.8925
+
+$Median
+[1] 17.71
+
+$`3rd Qu.`
+[1] 18.9
+
+$Max.
+[1] 22.9
+
+$Mean.
+[1] 17.84875
+
+$Var.
+[1] 3.193166
+
+[1] "Summary for given data; "
+[1] "vs"
+$Min.
+[1] 0
+
+$`1st Qu.`
+[1] 0
+
+$Median
+[1] 0
+
+$`3rd Qu.`
+[1] 1
+
+$Max.
+[1] 1
+
+$Mean.
+[1] 0.4375
+
+$Var.
+[1] 0.2540323
+
+[1] "Summary for given data; "
+[1] "am"
+$Min.
+[1] 0
+
+$`1st Qu.`
+[1] 0
+
+$Median
+[1] 0
+
+$`3rd Qu.`
+[1] 1
+
+$Max.
+[1] 1
+
+$Mean.
+[1] 0.40625
+
+$Var.
+[1] 0.2489919
+
+[1] "Summary for given data; "
+[1] "gear"
+$Min.
+[1] 3
+
+$`1st Qu.`
+[1] 3
+
+$Median
+[1] 4
+
+$`3rd Qu.`
+[1] 4
+
+$Max.
+[1] 5
+
+$Mean.
+[1] 3.6875
+
+$Var.
+[1] 0.5443548
+
+[1] "Summary for given data; "
+[1] "carb"
+$Min.
+[1] 1
+
+$`1st Qu.`
+[1] 2
+
+$Median
+[1] 2
+
+$`3rd Qu.`
+[1] 4
+
+$Max.
+[1] 8
+
+$Mean.
+[1] 2.8125
+
+$Var.
+[1] 2.608871</code></pre>
 </div>
 </div>
-<p>My first assignment has two parts.</p>
-<section id="a" class="level2">
-<h2 class="anchored" data-anchor-id="a">(a)</h2>
-</section>
-<section id="b" class="level2">
-<h2 class="anchored" data-anchor-id="b">(b)</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>$Min.
+[1] 10.4
+
+$`1st Qu.`
+[1] 15.425
+
+$Median
+[1] 19.2
+
+$`3rd Qu.`
+[1] 22.8
+
+$Max.
+[1] 33.9
+
+$Mean.
+[1] 20.09062
+
+$Var.
+[1] 36.3241
+
+$Min.
+[1] 4
+
+$`1st Qu.`
+[1] 4
+
+$Median
+[1] 6
+
+$`3rd Qu.`
+[1] 8
+
+$Max.
+[1] 8
+
+$Mean.
+[1] 6.1875
+
+$Var.
+[1] 3.189516
+
+$Min.
+[1] 71.1
+
+$`1st Qu.`
+[1] 120.825
+
+$Median
+[1] 196.3
+
+$`3rd Qu.`
+[1] 326
+
+$Max.
+[1] 472
+
+$Mean.
+[1] 230.7219
+
+$Var.
+[1] 15360.8
+
+$Min.
+[1] 52
+
+$`1st Qu.`
+[1] 96.5
+
+$Median
+[1] 123
+
+$`3rd Qu.`
+[1] 180
+
+$Max.
+[1] 335
+
+$Mean.
+[1] 146.6875
+
+$Var.
+[1] 4700.867
+
+$Min.
+[1] 2.76
+
+$`1st Qu.`
+[1] 3.08
+
+$Median
+[1] 3.695
+
+$`3rd Qu.`
+[1] 3.92
+
+$Max.
+[1] 4.93
+
+$Mean.
+[1] 3.596563
+
+$Var.
+[1] 0.2858814
+
+$Min.
+[1] 1.513
+
+$`1st Qu.`
+[1] 2.58125
+
+$Median
+[1] 3.325
+
+$`3rd Qu.`
+[1] 3.61
+
+$Max.
+[1] 5.424
+
+$Mean.
+[1] 3.21725
+
+$Var.
+[1] 0.957379
+
+$Min.
+[1] 14.5
+
+$`1st Qu.`
+[1] 16.8925
+
+$Median
+[1] 17.71
+
+$`3rd Qu.`
+[1] 18.9
+
+$Max.
+[1] 22.9
+
+$Mean.
+[1] 17.84875
+
+$Var.
+[1] 3.193166
+
+$Min.
+[1] 0
+
+$`1st Qu.`
+[1] 0
+
+$Median
+[1] 0
+
+$`3rd Qu.`
+[1] 1
+
+$Max.
+[1] 1
+
+$Mean.
+[1] 0.4375
+
+$Var.
+[1] 0.2540323
+
+$Min.
+[1] 0
+
+$`1st Qu.`
+[1] 0
+
+$Median
+[1] 0
+
+$`3rd Qu.`
+[1] 1
+
+$Max.
+[1] 1
+
+$Mean.
+[1] 0.40625
+
+$Var.
+[1] 0.2489919
+
+$Min.
+[1] 3
+
+$`1st Qu.`
+[1] 3
+
+$Median
+[1] 4
+
+$`3rd Qu.`
+[1] 4
+
+$Max.
+[1] 5
+
+$Mean.
+[1] 3.6875
+
+$Var.
+[1] 0.5443548
+
+$Min.
+[1] 1
+
+$`1st Qu.`
+[1] 2
+
+$Median
+[1] 2
+
+$`3rd Qu.`
+[1] 4
+
+$Max.
+[1] 8
+
+$Mean.
+[1] 2.8125
+
+$Var.
+[1] 2.608871</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$mpg
+$mpg$Min.
+[1] 10.4
+
+$mpg$`1st Qu.`
+[1] 15.425
+
+$mpg$Median
+[1] 19.2
+
+$mpg$`3rd Qu.`
+[1] 22.8
+
+$mpg$Max.
+[1] 33.9
+
+$mpg$Mean.
+[1] 20.09062
+
+$mpg$Var.
+[1] 36.3241
 
 
+$cyl
+$cyl$Min.
+[1] 4
+
+$cyl$`1st Qu.`
+[1] 4
+
+$cyl$Median
+[1] 6
+
+$cyl$`3rd Qu.`
+[1] 8
+
+$cyl$Max.
+[1] 8
+
+$cyl$Mean.
+[1] 6.1875
+
+$cyl$Var.
+[1] 3.189516
+
+
+$disp
+$disp$Min.
+[1] 71.1
+
+$disp$`1st Qu.`
+[1] 120.825
+
+$disp$Median
+[1] 196.3
+
+$disp$`3rd Qu.`
+[1] 326
+
+$disp$Max.
+[1] 472
+
+$disp$Mean.
+[1] 230.7219
+
+$disp$Var.
+[1] 15360.8
+
+
+$hp
+$hp$Min.
+[1] 52
+
+$hp$`1st Qu.`
+[1] 96.5
+
+$hp$Median
+[1] 123
+
+$hp$`3rd Qu.`
+[1] 180
+
+$hp$Max.
+[1] 335
+
+$hp$Mean.
+[1] 146.6875
+
+$hp$Var.
+[1] 4700.867
+
+
+$drat
+$drat$Min.
+[1] 2.76
+
+$drat$`1st Qu.`
+[1] 3.08
+
+$drat$Median
+[1] 3.695
+
+$drat$`3rd Qu.`
+[1] 3.92
+
+$drat$Max.
+[1] 4.93
+
+$drat$Mean.
+[1] 3.596563
+
+$drat$Var.
+[1] 0.2858814
+
+
+$wt
+$wt$Min.
+[1] 1.513
+
+$wt$`1st Qu.`
+[1] 2.58125
+
+$wt$Median
+[1] 3.325
+
+$wt$`3rd Qu.`
+[1] 3.61
+
+$wt$Max.
+[1] 5.424
+
+$wt$Mean.
+[1] 3.21725
+
+$wt$Var.
+[1] 0.957379
+
+
+$qsec
+$qsec$Min.
+[1] 14.5
+
+$qsec$`1st Qu.`
+[1] 16.8925
+
+$qsec$Median
+[1] 17.71
+
+$qsec$`3rd Qu.`
+[1] 18.9
+
+$qsec$Max.
+[1] 22.9
+
+$qsec$Mean.
+[1] 17.84875
+
+$qsec$Var.
+[1] 3.193166
+
+
+$vs
+$vs$Min.
+[1] 0
+
+$vs$`1st Qu.`
+[1] 0
+
+$vs$Median
+[1] 0
+
+$vs$`3rd Qu.`
+[1] 1
+
+$vs$Max.
+[1] 1
+
+$vs$Mean.
+[1] 0.4375
+
+$vs$Var.
+[1] 0.2540323
+
+
+$am
+$am$Min.
+[1] 0
+
+$am$`1st Qu.`
+[1] 0
+
+$am$Median
+[1] 0
+
+$am$`3rd Qu.`
+[1] 1
+
+$am$Max.
+[1] 1
+
+$am$Mean.
+[1] 0.40625
+
+$am$Var.
+[1] 0.2489919
+
+
+$gear
+$gear$Min.
+[1] 3
+
+$gear$`1st Qu.`
+[1] 3
+
+$gear$Median
+[1] 4
+
+$gear$`3rd Qu.`
+[1] 4
+
+$gear$Max.
+[1] 5
+
+$gear$Mean.
+[1] 3.6875
+
+$gear$Var.
+[1] 0.5443548
+
+
+$carb
+$carb$Min.
+[1] 1
+
+$carb$`1st Qu.`
+[1] 2
+
+$carb$Median
+[1] 2
+
+$carb$`3rd Qu.`
+[1] 4
+
+$carb$Max.
+[1] 8
+
+$carb$Mean.
+[1] 2.8125
+
+$carb$Var.
+[1] 2.608871</code></pre>
+</div>
+</div>
 </section>
+<section id="c-na_example-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="c-na_example-dataset">(c) “na_example” Dataset</h2>
+<p>NA (missing) values</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 12
+[1] 17
+[1] 27
+[1] 50
+[1] 51
+[1] 52
+[1] 59
+[1] 65
+[1] 66
+[1] 68
+[1] 91
+[1] 117
+[1] 125
+[1] 126
+[1] 127
+[1] 128
+[1] 139
+[1] 140
+[1] 141
+[1] 142
+[1] 153
+[1] 158
+[1] 168
+[1] 169
+[1] 172
+[1] 179
+[1] 189
+[1] 190
+[1] 203
+[1] 205
+[1] 207
+[1] 208
+[1] 212
+[1] 214
+[1] 237
+[1] 241
+[1] 243
+[1] 244
+[1] 253
+[1] 257
+[1] 265
+[1] 267
+[1] 269
+[1] 279
+[1] 282
+[1] 287
+[1] 290
+[1] 298
+[1] 310
+[1] 325
+[1] 326
+[1] 330
+[1] 341
+[1] 348
+[1] 361
+[1] 374
+[1] 392
+[1] 395
+[1] 397
+[1] 407
+[1] 410
+[1] 437
+[1] 443
+[1] 446
+[1] 461
+[1] 468
+[1] 470
+[1] 490
+[1] 496
+[1] 505
+[1] 527
+[1] 536
+[1] 539
+[1] 553
+[1] 561
+[1] 576
+[1] 578
+[1] 589
+[1] 599
+[1] 603
+[1] 609
+[1] 616
+[1] 618
+[1] 620
+[1] 630
+[1] 633
+[1] 636
+[1] 641
+[1] 652
+[1] 653
+[1] 666
+[1] 667
+[1] 668
+[1] 677
+[1] 680
+[1] 687
+[1] 691
+[1] 695
+[1] 701
+[1] 726
+[1] 734
+[1] 735
+[1] 736
+[1] 745
+[1] 746
+[1] 747
+[1] 748
+[1] 751
+[1] 756
+[1] 762
+[1] 767
+[1] 788
+[1] 789
+[1] 807
+[1] 821
+[1] 826
+[1] 832
+[1] 838
+[1] 843
+[1] 844
+[1] 845
+[1] 849
+[1] 850
+[1] 853
+[1] 859
+[1] 869
+[1] 887
+[1] 892
+[1] 893
+[1] 906
+[1] 909
+[1] 911
+[1] 918
+[1] 924
+[1] 925
+[1] 939
+[1] 943
+[1] 950
+[1] 962
+[1] 965
+[1] 966
+[1] 968
+[1] 979
+[1] 990
+[1] 999</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Mean and St.Dev. of original data set"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.301754</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.22338</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Mean and St.Dev. of Version 1 data set"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.258</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.136102</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Mean and St.Dev. of Version 2 data set"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Mean and St.Dev. of original data set"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.301754</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.22338</code></pre>
+</div>
+</div>
+<p>The mean and standard deviation values of different datasets should not differ significantly but the median statistic can carry more information about the distribution of the data, because of that the dataset produced according to Version 1 may be preferred.</p>
+
+
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -286,150 +1139,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
-        }
-      }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
-      return false;
-    }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -445,18 +1154,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -488,7 +1186,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -496,7 +1214,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -593,7 +1311,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -838,7 +1555,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>Hacettepe IE - EMU660 - Spring 2024</p>
+<p>Hacettepe IE - EMU660 - Spring 2025</p>
 </div>
     <div class="nav-footer-right">
       &nbsp;

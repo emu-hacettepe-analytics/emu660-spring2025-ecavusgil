@@ -2,7 +2,9 @@
 title: "Welcome to My Analytics Lab"
 ---
 
-Hello!! My name is xxx xxxx.
+![](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbDFzOTFza21ja2N1cHhza2Y4ZGpnbG5tbXlvNmFmNWpiZGYybjE1biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/CObqVWt7S889O/giphy.gif)
+
+Hello!! My name is Ece Çavuşgil.
 
 This is my personal webpage.
 

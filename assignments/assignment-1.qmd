@@ -1,15 +1,112 @@
 ---
 title: "Assignment 1"
+execute: 
+  echo: false
+sidebar: false 
 ---
 
-# Assignment 1
+My first assignment has three parts.
+
+## (a) A brief summary for [Mr. Demirtas\` speech;](https://www.youtube.com/watch?v=cUPtQEyaswM)
+
+
+
+Mr.Demirtas, in his talk, first briefly introduced himself, his background, and his research areas (Replenishment allocation problems, simulation, autonomous vehicles), as well as his work at Invent.ai. The talk can be divided into two parts. In the first part, the definition of data science was given, and its stages were enriched with examples. In the second part, Mr. Demirtas briefly discussed his doctoral thesis and then answered questions about artificial intelligence and data science.
+
+Data science does not always provide exact answers. The key is to ask the right questions, compare the results with the real world, and update models to analyze data correctly. Artificial intelligence and machine learning are tools within data science, but data science is a broader field. Additionally, algorithms and modeling approaches can vary significantly depending on the problem. Data science uses models, algorithms, and analytical techniques to extract meaningful insights from data. Although it has become one of the most popular professions in recent years, artificial intelligence cannot replace data science because the human factor, interpretation, and decision-making processes play a critical role.
+
+The data science process consists of problem definition, data collection, exploratory data analysis (EDA), modeling, evaluation, and analyzing results. Problem definition ensures a proper start. For example, Abraham Wald’s analysis of the reasons for the bombing aircraft crashes during World War II illustrates this step. Data can be collected from sources such as sensors and databases. The collected data can be structured or unstructured. Without quality data, it is difficult to obtain accurate results. In the exploratory data analysis (EDA) phase, visualization is an essential tool for understanding the data. For instance, in 1854, Dr. John Snow proved that cholera in London spread through water, not air, by analyzing data.
+
+In the model building phase, mathematical models and algorithms are used to derive insights from the data, make predictions, and generate solutions. The fundamental techniques include descriptive (descriptive), predictive (predictive), and prescriptive (prescriptive) analysis. For instance, the weather prediction model developed by Lewis Fry Richardson in 1932 attempted to solve a long-standing problem with the limited tools of that time. Today, however, such problems can be solved in much less time, highlighting the progress of technology and the potential solutions that may emerge in the future. Another example is the mathematical model developed during World War II to ensure sufficient nutrition for soldiers. During the evaluation phase of the model, its success is tested, and issues such as overfitting (when the model memorizes training data too closely) or underfitting (when the model is too simplistic) are analyzed. For example, IBM's Deep Blue computer tried to win against chess champion Garry Kasparov by memorizing all his moves. However, Kasparov’s unexpected moves revealed the model's limited learning structure. Finally, during the Deployment & Live Performance stage, the model is integrated into real-world applications, and its performance is monitored. It is important for systems dealing with big data to manage real-time errors and to be scalable.
+
+At the end of his talk, Mr. Demirtas discussed his doctoral research, which uses the Cellular Automaton Model to explore how autonomous vehicles can reduce traffic congestion. The goal is to minimize traffic buildup caused by stop-and-go driving or lane changes. The core objective of the thesis is to control when autonomous vehicles should merge, separate, and adjust their speed to optimize traffic flow. By properly guiding autonomous vehicles, maximum efficiency in traffic can be achieved.
+
+## (b) "mtcars" Dataset
+
+Exploring Statistical Summaries with Custom Functions and Iteration Methods;
 
 ```{r}
-1 + 1
+#Writing a custom summary function
+
+compute_stats<-function(veri){
+  a<-as.data.frame(matrix(c(quantile(veri),mean(veri),var(veri)),nrow=1,ncol=7))
+  colnames(a)<-c("Min.","1st Qu.","Median","3rd Qu.","Max.","Mean.","Var.")
+  a<-as.list(a)
+  print(a)
+}
+
 ```
 
-My first assignment has two parts.
+```{r}
+#applying the function using a loop
 
-## (a)
+for(i in 1:ncol(mtcars)){
+  n<-data.frame(colnames(mtcars))
+  print("Summary for given data; ")
+  print(n[i,])
+  compute_stats(mtcars[,i])
+}
 
-## (b)
+```
+
+```{r}
+#An alternative approach with sapply and apply.
+apply(mtcars,2,compute_stats)
+```
+
+## (c) "na_example" Dataset
+
+NA (missing) values
+
+```{r}
+#install.packages(dslabs)
+library(dslabs)
+og_dataset<-na_example
+#Total count of NA values 
+sum<-0
+for(i in 1:1000){
+ifelse(is.na(og_dataset[i])=='TRUE',sum<-sum+1,sum<-sum)
+}
+print("Total count of NA values")
+print(sum)
+# Index positions of NA values
+index<-matrix(data=rep(0,sum))
+b<-1
+for(i in 1:1000){
+if(is.na(og_dataset[i])=='TRUE'){
+  index[b]<-i
+  b<-b+1
+  }
+}
+print("Index positions of NA values")
+print(index)
+
+#Mean and standard deviation of dataset (ignore NA s in calculations)
+print("Mean and St.Dev. of original data set")
+print(mean(og_dataset,na.rm=TRUE))#na.rm=TRUE means ignoring NA values in computation
+print(sd(og_dataset,na.rm=TRUE))
+
+#Handling missing values
+#Version1
+v1_dataset<-matrix(data=rep(0,1000))
+v2_dataset<-matrix(data=rep(0,1000))
+random<-(sample(1:1000,1))
+for(i in 1:1000){
+ifelse(is.na(og_dataset[i])==TRUE,(v1_dataset[i]<-median(og_dataset,na.rm = TRUE))&&(v2_dataset[i]<-og_dataset[random]),(v1_dataset[i]<-og_dataset[i])&&(v2_dataset[i]<-og_dataset[i]))
+ }
+
+#Compare the results
+print("Mean and St.Dev. of Version 1 data set")
+mean(v1_dataset)
+sd(v1_dataset)
+
+print("Mean and St.Dev. of Version 2 data set")
+mean(v2_dataset)
+sd(v2_dataset)
+
+print("Mean and St.Dev. of original data set")
+mean(og_dataset,na.rm=TRUE)
+sd(og_dataset,na.rm=TRUE)
+```
+
+The mean and standard deviation values of different datasets should not differ significantly but the median statistic can carry more information about the distribution of the data, because of that the dataset produced according to Version 1 may be preferred.
