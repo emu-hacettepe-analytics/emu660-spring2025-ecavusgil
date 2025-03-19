@@ -3,38 +3,36 @@ title: "About Me"
 sidebar: false 
 ---
 
-![](assets/images/vesikalik.jpeg){fig-align="center"}
+![](assets/images/vesikalik.jpg){fig-align="left" width="2in"}
 
 # Education
 
--   B.S., ................................., ....................................University, Turkey, 20xx - 20xx.
--   M.S., Industrial Engineering, Hacettepe University, Turkey, 20xx - ongoing.
--   Ph.D.., Industrial Engineering, Hacettepe University, Turkey, 20xx - ongoing.
+-   B.S., Baskent University, Turkey, 2015 - 2019.
+-   M.S., Statistics, Hacettepe University, Turkey, 2020 - 2024.
+-   M.S., Industrial Engineering, Hacettepe University, Turkey, 2025 - ongoing.
 
 # Work Experience
 
 ## Employements
 
-1.  Firm xxx, position xx, year xxx
-
-2.  Firm yyy, position yyy, year yyy
+1.  LUPE Consulting, SAP Consultant , 2020-2021
 
 ## Internships
 
-1.  Firm aaa, position xx, year xxx
+1.  FNSS Defense Systems, Intern, 2017
 
-2.  Firm bbb, position yyy, year yyy
+2.  Turkish Aerospace Industries, Intern 2018
 
 # Projects
 
-1.  TUBİTAK 1001..........................
-
-# Publications
-
-1.  Dasdemir, E., Batta, R., Koksalan, M., Tezcaner Ozturk, D. (2022) “UAV Routing for Reconnaissance Mission: A Multi-Objective Orienteering Problem with Time-Dependent Prizes and Multiple Connections”, Computers & Operations Research, 145: 105882.
+1.Turkish Aerospace Industries, Graduation project, "An application for the problem of determining lot size and security stock with dynamic demand.", 2018-2019
 
 # Competencies
 
-R, Quarto, Git, Python
+R Studio, Quarto, SPSS, Minitab, MATLAB
 
 # Hobbies
+
+Give a chance with bass, nailed it on the drums, blown away by Art History
+
+[Download Ece`s CV](assets/documents/Ece%20Cavusgil,cv.pdf)
