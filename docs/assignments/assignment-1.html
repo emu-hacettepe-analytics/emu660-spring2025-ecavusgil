@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -179,6 +213,30 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="b-mtcars-dataset">(b) “mtcars” Dataset</h2>
 <p>Exploring Statistical Summaries with Custom Functions and Iteration Methods;</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Writing a custom summary function</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>compute_stats<span class="ot">&lt;-</span><span class="cf">function</span>(veri){</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  a<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(<span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fu">quantile</span>(veri),<span class="fu">mean</span>(veri),<span class="fu">var</span>(veri)),<span class="at">nrow=</span><span class="dv">1</span>,<span class="at">ncol=</span><span class="dv">7</span>))</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(a)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Min."</span>,<span class="st">"1st Qu."</span>,<span class="st">"Median"</span>,<span class="st">"3rd Qu."</span>,<span class="st">"Max."</span>,<span class="st">"Mean."</span>,<span class="st">"Var."</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  a<span class="ot">&lt;-</span><span class="fu">as.list</span>(a)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(a)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#applying the function using a loop</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(mtcars)){</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  n<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="fu">colnames</span>(mtcars))</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"Summary for given data; "</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(n[i,])</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">compute_stats</span>(mtcars[,i])</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Summary for given data; "
 [1] "mpg"
@@ -435,6 +493,265 @@ $Var.
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#An alternative approach with sapply and apply.</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(mtcars,compute_stats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>$Min.
+[1] 10.4
+
+$`1st Qu.`
+[1] 15.425
+
+$Median
+[1] 19.2
+
+$`3rd Qu.`
+[1] 22.8
+
+$Max.
+[1] 33.9
+
+$Mean.
+[1] 20.09062
+
+$Var.
+[1] 36.3241
+
+$Min.
+[1] 4
+
+$`1st Qu.`
+[1] 4
+
+$Median
+[1] 6
+
+$`3rd Qu.`
+[1] 8
+
+$Max.
+[1] 8
+
+$Mean.
+[1] 6.1875
+
+$Var.
+[1] 3.189516
+
+$Min.
+[1] 71.1
+
+$`1st Qu.`
+[1] 120.825
+
+$Median
+[1] 196.3
+
+$`3rd Qu.`
+[1] 326
+
+$Max.
+[1] 472
+
+$Mean.
+[1] 230.7219
+
+$Var.
+[1] 15360.8
+
+$Min.
+[1] 52
+
+$`1st Qu.`
+[1] 96.5
+
+$Median
+[1] 123
+
+$`3rd Qu.`
+[1] 180
+
+$Max.
+[1] 335
+
+$Mean.
+[1] 146.6875
+
+$Var.
+[1] 4700.867
+
+$Min.
+[1] 2.76
+
+$`1st Qu.`
+[1] 3.08
+
+$Median
+[1] 3.695
+
+$`3rd Qu.`
+[1] 3.92
+
+$Max.
+[1] 4.93
+
+$Mean.
+[1] 3.596563
+
+$Var.
+[1] 0.2858814
+
+$Min.
+[1] 1.513
+
+$`1st Qu.`
+[1] 2.58125
+
+$Median
+[1] 3.325
+
+$`3rd Qu.`
+[1] 3.61
+
+$Max.
+[1] 5.424
+
+$Mean.
+[1] 3.21725
+
+$Var.
+[1] 0.957379
+
+$Min.
+[1] 14.5
+
+$`1st Qu.`
+[1] 16.8925
+
+$Median
+[1] 17.71
+
+$`3rd Qu.`
+[1] 18.9
+
+$Max.
+[1] 22.9
+
+$Mean.
+[1] 17.84875
+
+$Var.
+[1] 3.193166
+
+$Min.
+[1] 0
+
+$`1st Qu.`
+[1] 0
+
+$Median
+[1] 0
+
+$`3rd Qu.`
+[1] 1
+
+$Max.
+[1] 1
+
+$Mean.
+[1] 0.4375
+
+$Var.
+[1] 0.2540323
+
+$Min.
+[1] 0
+
+$`1st Qu.`
+[1] 0
+
+$Median
+[1] 0
+
+$`3rd Qu.`
+[1] 1
+
+$Max.
+[1] 1
+
+$Mean.
+[1] 0.40625
+
+$Var.
+[1] 0.2489919
+
+$Min.
+[1] 3
+
+$`1st Qu.`
+[1] 3
+
+$Median
+[1] 4
+
+$`3rd Qu.`
+[1] 4
+
+$Max.
+[1] 5
+
+$Mean.
+[1] 3.6875
+
+$Var.
+[1] 0.5443548
+
+$Min.
+[1] 1
+
+$`1st Qu.`
+[1] 2
+
+$Median
+[1] 2
+
+$`3rd Qu.`
+[1] 4
+
+$Max.
+[1] 8
+
+$Mean.
+[1] 2.8125
+
+$Var.
+[1] 2.608871</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        mpg      cyl      disp     hp       drat      wt       qsec    
+Min.    10.4     4        71.1     52       2.76      1.513    14.5    
+1st Qu. 15.425   4        120.825  96.5     3.08      2.58125  16.8925 
+Median  19.2     6        196.3    123      3.695     3.325    17.71   
+3rd Qu. 22.8     8        326      180      3.92      3.61     18.9    
+Max.    33.9     8        472      335      4.93      5.424    22.9    
+Mean.   20.09062 6.1875   230.7219 146.6875 3.596563  3.21725  17.84875
+Var.    36.3241  3.189516 15360.8  4700.867 0.2858814 0.957379 3.193166
+        vs        am        gear      carb    
+Min.    0         0         3         1       
+1st Qu. 0         0         3         2       
+Median  0         0         4         2       
+3rd Qu. 1         1         4         4       
+Max.    1         1         5         8       
+Mean.   0.4375    0.40625   3.6875    2.8125  
+Var.    0.2540323 0.2489919 0.5443548 2.608871</code></pre>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(mtcars,<span class="dv">2</span>,compute_stats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>$Min.
 [1] 10.4
@@ -926,189 +1243,343 @@ $carb$Var.
 <h2 class="anchored" data-anchor-id="c-na_example-dataset">(c) “na_example” Dataset</h2>
 <p>NA (missing) values</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(dslabs)</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dslabs)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>og_dataset<span class="ot">&lt;-</span>na_example</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Our dataset:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 12
-[1] 17
-[1] 27
-[1] 50
-[1] 51
-[1] 52
-[1] 59
-[1] 65
-[1] 66
-[1] 68
-[1] 91
-[1] 117
-[1] 125
-[1] 126
-[1] 127
-[1] 128
-[1] 139
-[1] 140
-[1] 141
-[1] 142
-[1] 153
-[1] 158
-[1] 168
-[1] 169
-[1] 172
-[1] 179
-[1] 189
-[1] 190
-[1] 203
-[1] 205
-[1] 207
-[1] 208
-[1] 212
-[1] 214
-[1] 237
-[1] 241
-[1] 243
-[1] 244
-[1] 253
-[1] 257
-[1] 265
-[1] 267
-[1] 269
-[1] 279
-[1] 282
-[1] 287
-[1] 290
-[1] 298
-[1] 310
-[1] 325
-[1] 326
-[1] 330
-[1] 341
-[1] 348
-[1] 361
-[1] 374
-[1] 392
-[1] 395
-[1] 397
-[1] 407
-[1] 410
-[1] 437
-[1] 443
-[1] 446
-[1] 461
-[1] 468
-[1] 470
-[1] 490
-[1] 496
-[1] 505
-[1] 527
-[1] 536
-[1] 539
-[1] 553
-[1] 561
-[1] 576
-[1] 578
-[1] 589
-[1] 599
-[1] 603
-[1] 609
-[1] 616
-[1] 618
-[1] 620
-[1] 630
-[1] 633
-[1] 636
-[1] 641
-[1] 652
-[1] 653
-[1] 666
-[1] 667
-[1] 668
-[1] 677
-[1] 680
-[1] 687
-[1] 691
-[1] 695
-[1] 701
-[1] 726
-[1] 734
-[1] 735
-[1] 736
-[1] 745
-[1] 746
-[1] 747
-[1] 748
-[1] 751
-[1] 756
-[1] 762
-[1] 767
-[1] 788
-[1] 789
-[1] 807
-[1] 821
-[1] 826
-[1] 832
-[1] 838
-[1] 843
-[1] 844
-[1] 845
-[1] 849
-[1] 850
-[1] 853
-[1] 859
-[1] 869
-[1] 887
-[1] 892
-[1] 893
-[1] 906
-[1] 909
-[1] 911
-[1] 918
-[1] 924
-[1] 925
-[1] 939
-[1] 943
-[1] 950
-[1] 962
-[1] 965
-[1] 966
-[1] 968
-[1] 979
-[1] 990
-[1] 999</code></pre>
+<pre><code>[1] "Our dataset:"</code></pre>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(og_dataset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
+<pre><code>   [1]  2  1  3  2  1  3  1  4  3  2  2 NA  2  2  1  4 NA  1  1  2  1  2  2  1
+  [25]  2  5 NA  2  2  3  1  2  4  1  1  1  4  5  2  3  4  1  2  4  1  1  2  1
+  [49]  5 NA NA NA  1  1  5  1  3  1 NA  4  4  7  3  2 NA NA  1 NA  4  1  2  2
+  [73]  3  2  1  2  2  4  3  4  2  3  1  3  2  1  1  1  3  1 NA  3  1  2  2  1
+  [97]  2  2  1  1  4  1  1  2  3  3  2  2  3  3  3  4  1  1  1  2 NA  4  3  4
+ [121]  3  1  2  1 NA NA NA NA  1  5  1  2  1  3  5  3  2  2 NA NA NA NA  3  5
+ [145]  3  1  1  4  2  4  3  3 NA  2  3  2  6 NA  1  1  2  2  1  3  1  1  5 NA
+ [169] NA  2  4 NA  2  5  1  4  3  3 NA  4  3  1  4  1  1  3  1  1 NA NA  3  5
+ [193]  2  2  2  3  1  2  2  3  2  1 NA  2 NA  1 NA NA  2  1  1 NA  3 NA  1  2
+ [217]  2  1  3  2  2  1  1  2  3  1  1  1  4  3  4  2  2  1  4  1 NA  5  1  4
+ [241] NA  3 NA NA  1  1  5  2  3  3  2  4 NA  3  2  5 NA  2  3  4  6  2  2  2
+ [265] NA  2 NA  2 NA  3  3  2  2  4  3  1  4  2 NA  2  4 NA  6  2  3  1 NA  2
+ [289]  2 NA  1  1  3  2  3  3  1 NA  1  4  2  1  1  3  2  1  2  3  1 NA  2  3
+ [313]  3  2  1  2  3  5  5  1  2  3  3  1 NA NA  1  2  4 NA  2  1  1  1  3  2
+ [337]  1  1  3  4 NA  1  2  1  1  3  3 NA  1  1  3  5  3  2  3  4  1  4  3  1
+ [361] NA  2  1  2  2  1  2  2  6  1  2  4  5 NA  3  4  2  1  1  4  2  1  1  1
+ [385]  1  2  1  4  4  1  3 NA  3  3 NA  2 NA  1  2  1  1  4  2  1  4  4 NA  1
+ [409]  2 NA  3  2  2  2  1  4  3  6  1  2  3  1  3  2  2  2  1  1  3  2  1  1
+ [433]  1  3  2  2 NA  4  4  4  1  1 NA  4  3 NA  1  3  1  3  2  4  2  2  2  3
+ [457]  2  1  4  3 NA  1  4  3  1  3  2 NA  3 NA  1  3  1  4  1  1  1  2  4  3
+ [481]  1  2  2  2  3  2  3  1  1 NA  3  2  1  1  2 NA  2  2  2  3  3  1  1  2
+ [505] NA  1  2  1  1  3  3  1  3  1  1  1  1  1  2  5  1  1  2  2  1  1 NA  1
+ [529]  4  1  2  4  1  3  2 NA  1  1 NA  2  1  1  4  2  3  3  1  5  3  1  1  2
+ [553] NA  1  1  3  1  3  2  4 NA  2  3  2  1  2  1  1  1  2  2  3  1  5  2 NA
+ [577]  2 NA  3  2  2  2  1  5  3  2  3  1 NA  3  1  2  2  2  1  2  2  4 NA  6
+ [601]  1  2 NA  1  1  2  2  3 NA  3  2  3  3  4  2 NA  2 NA  4 NA  1  1  2  2
+ [625]  3  1  1  1  3 NA  2  5 NA  7  1 NA  4  3  3  1 NA  1  1  1  1  3  2  4
+ [649]  2  2  3 NA NA  1  4  3  2  2  2  3  2  4  2  2  4 NA NA NA  6  3  3  1
+ [673]  4  4  2  1 NA  1  6 NA  3  3  2  1  1  6 NA  1  5  1 NA  2  6  2 NA  4
+ [697]  1  3  1  2 NA  1  1  3  1  2  4  2  1  3  2  4  3  2  2  1  1  5  6  4
+ [721]  2  2  2  2  4 NA  1  2  2  2  2  4  5 NA NA NA  4  3  3  3  2  4  2  4
+ [745] NA NA NA NA  2  1 NA  2  4  3  2 NA  2  3  1  3  4 NA  1  2  1  2 NA  3
+ [769]  1  2  1  2  1  2  1  2  2  2  2  1  1  3  3  1  3  4  3 NA NA  4  2  3
+ [793]  2  1  3  2  4  2  2  3  1  2  4  3  3  4 NA  1  4  2  1  1  1  3  1  5
+ [817]  2  2  4  2 NA  1  3  1  2 NA  1  2  1  2  1 NA  1  3  2  3  2 NA  2  1
+ [841]  4  2 NA NA NA  2  4  2 NA NA  3  1 NA  5  5  2  2  2 NA  2  1  3  1  3
+ [865]  2  4  2  4 NA  4  1  2  3  2  3  3  2  3  2  2  2  1  3  2  4  2 NA  3
+ [889]  3  2  2 NA NA  3  2  1  2  4  1  1  1  1  4  3  2 NA  3  2 NA  1 NA  3
+ [913]  2  1  1  1  2 NA  2  2  3  3  2 NA NA  4  5  2  2  2  1  2  3  1  3  3
+ [937]  4  3 NA  1  1  1 NA  4  3  5  1  1  2 NA  2  2  2  2  5  2  2  3  1  2
+ [961]  3 NA  1  2 NA NA  2 NA  3  1  1  2  5  3  5  1  1  4 NA  2  1  3  1  1
+ [985]  2  4  3  3  3 NA  1  1  2  2  1  1  2  2 NA  2</code></pre>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Total count of NA values </span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>sum<span class="ot">&lt;-</span><span class="dv">0</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>){</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(<span class="fu">is.na</span>(og_dataset[i])<span class="sc">==</span><span class="st">'TRUE'</span>,sum<span class="ot">&lt;-</span>sum<span class="sc">+</span><span class="dv">1</span>,sum<span class="ot">&lt;-</span>sum)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Total count of NA values"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Total count of NA values"</code></pre>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 145</code></pre>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Index positions of NA values</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>index<span class="ot">&lt;-</span><span class="fu">matrix</span>(<span class="at">data=</span><span class="fu">rep</span>(<span class="dv">0</span>,sum))</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>b<span class="ot">&lt;-</span><span class="dv">1</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>){</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">is.na</span>(og_dataset[i])<span class="sc">==</span><span class="st">'TRUE'</span>){</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  index[b]<span class="ot">&lt;-</span>i</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  b<span class="ot">&lt;-</span>b<span class="sc">+</span><span class="dv">1</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Index positions of NA values"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Index positions of NA values"</code></pre>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(index)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>       [,1]
+  [1,]   12
+  [2,]   17
+  [3,]   27
+  [4,]   50
+  [5,]   51
+  [6,]   52
+  [7,]   59
+  [8,]   65
+  [9,]   66
+ [10,]   68
+ [11,]   91
+ [12,]  117
+ [13,]  125
+ [14,]  126
+ [15,]  127
+ [16,]  128
+ [17,]  139
+ [18,]  140
+ [19,]  141
+ [20,]  142
+ [21,]  153
+ [22,]  158
+ [23,]  168
+ [24,]  169
+ [25,]  172
+ [26,]  179
+ [27,]  189
+ [28,]  190
+ [29,]  203
+ [30,]  205
+ [31,]  207
+ [32,]  208
+ [33,]  212
+ [34,]  214
+ [35,]  237
+ [36,]  241
+ [37,]  243
+ [38,]  244
+ [39,]  253
+ [40,]  257
+ [41,]  265
+ [42,]  267
+ [43,]  269
+ [44,]  279
+ [45,]  282
+ [46,]  287
+ [47,]  290
+ [48,]  298
+ [49,]  310
+ [50,]  325
+ [51,]  326
+ [52,]  330
+ [53,]  341
+ [54,]  348
+ [55,]  361
+ [56,]  374
+ [57,]  392
+ [58,]  395
+ [59,]  397
+ [60,]  407
+ [61,]  410
+ [62,]  437
+ [63,]  443
+ [64,]  446
+ [65,]  461
+ [66,]  468
+ [67,]  470
+ [68,]  490
+ [69,]  496
+ [70,]  505
+ [71,]  527
+ [72,]  536
+ [73,]  539
+ [74,]  553
+ [75,]  561
+ [76,]  576
+ [77,]  578
+ [78,]  589
+ [79,]  599
+ [80,]  603
+ [81,]  609
+ [82,]  616
+ [83,]  618
+ [84,]  620
+ [85,]  630
+ [86,]  633
+ [87,]  636
+ [88,]  641
+ [89,]  652
+ [90,]  653
+ [91,]  666
+ [92,]  667
+ [93,]  668
+ [94,]  677
+ [95,]  680
+ [96,]  687
+ [97,]  691
+ [98,]  695
+ [99,]  701
+[100,]  726
+[101,]  734
+[102,]  735
+[103,]  736
+[104,]  745
+[105,]  746
+[106,]  747
+[107,]  748
+[108,]  751
+[109,]  756
+[110,]  762
+[111,]  767
+[112,]  788
+[113,]  789
+[114,]  807
+[115,]  821
+[116,]  826
+[117,]  832
+[118,]  838
+[119,]  843
+[120,]  844
+[121,]  845
+[122,]  849
+[123,]  850
+[124,]  853
+[125,]  859
+[126,]  869
+[127,]  887
+[128,]  892
+[129,]  893
+[130,]  906
+[131,]  909
+[132,]  911
+[133,]  918
+[134,]  924
+[135,]  925
+[136,]  939
+[137,]  943
+[138,]  950
+[139,]  962
+[140,]  965
+[141,]  966
+[142,]  968
+[143,]  979
+[144,]  990
+[145,]  999</code></pre>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Mean and standard deviation of dataset (ignore NA s in calculations)</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Mean and St.Dev. of original data set"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Mean and St.Dev. of original data set"</code></pre>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">mean</span>(og_dataset,<span class="at">na.rm=</span><span class="cn">TRUE</span>))<span class="co">#na.rm=TRUE means ignoring NA values in computation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.301754</code></pre>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">sd</span>(og_dataset,<span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.22338</code></pre>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Handling missing values</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Version1</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>v1_dataset<span class="ot">&lt;-</span><span class="fu">matrix</span>(<span class="at">data=</span><span class="fu">rep</span>(<span class="dv">0</span>,<span class="dv">1000</span>))</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>v2_dataset<span class="ot">&lt;-</span><span class="fu">matrix</span>(<span class="at">data=</span><span class="fu">rep</span>(<span class="dv">0</span>,<span class="dv">1000</span>))</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>random<span class="ot">&lt;-</span>(<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>,<span class="dv">1</span>))</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>){</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(<span class="fu">is.na</span>(og_dataset[i])<span class="sc">==</span><span class="cn">TRUE</span>,(v1_dataset[i]<span class="ot">&lt;-</span><span class="fu">median</span>(og_dataset,<span class="at">na.rm =</span> <span class="cn">TRUE</span>))<span class="sc">&amp;&amp;</span>(v2_dataset[i]<span class="ot">&lt;-</span>og_dataset[random]),(v1_dataset[i]<span class="ot">&lt;-</span>og_dataset[i])<span class="sc">&amp;&amp;</span>(v2_dataset[i]<span class="ot">&lt;-</span>og_dataset[i]))</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a> }</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="co">#Compare the results</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Mean and St.Dev. of Version 1 data set"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Mean and St.Dev. of Version 1 data set"</code></pre>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(v1_dataset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.258</code></pre>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(v1_dataset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.136102</code></pre>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Mean and St.Dev. of Version 2 data set"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Mean and St.Dev. of Version 2 data set"</code></pre>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(v2_dataset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] NA</code></pre>
+<pre><code>[1] 2.258</code></pre>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(v2_dataset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] NA</code></pre>
+<pre><code>[1] 1.136102</code></pre>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Mean and St.Dev. of original data set"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Mean and St.Dev. of original data set"</code></pre>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(og_dataset,<span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.301754</code></pre>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(og_dataset,<span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.22338</code></pre>
 </div>

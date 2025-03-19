@@ -1,15 +1,15 @@
 ---
 title: "Assignment 1"
-execute: 
-  echo: false
 sidebar: false 
+format:
+  html:
+    code-fold: true
+    code-summary: "Show the code"
 ---
 
 My first assignment has three parts.
 
 ## (a) A brief summary for [Mr. Demirtas\` speech;](https://www.youtube.com/watch?v=cUPtQEyaswM)
-
-
 
 Mr.Demirtas, in his talk, first briefly introduced himself, his background, and his research areas (Replenishment allocation problems, simulation, autonomous vehicles), as well as his work at Invent.ai. The talk can be divided into two parts. In the first part, the definition of data science was given, and its stages were enriched with examples. In the second part, Mr. Demirtas briefly discussed his doctoral thesis and then answered questions about artificial intelligence and data science.
 
@@ -51,6 +51,7 @@ for(i in 1:ncol(mtcars)){
 
 ```{r}
 #An alternative approach with sapply and apply.
+sapply(mtcars,compute_stats)
 apply(mtcars,2,compute_stats)
 ```
 
@@ -62,6 +63,8 @@ NA (missing) values
 #install.packages(dslabs)
 library(dslabs)
 og_dataset<-na_example
+print("Our dataset:")
+print(og_dataset)
 #Total count of NA values 
 sum<-0
 for(i in 1:1000){
