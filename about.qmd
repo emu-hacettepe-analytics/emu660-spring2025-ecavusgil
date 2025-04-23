@@ -33,6 +33,6 @@ R Studio, Quarto, SPSS, Minitab, MATLAB
 
 # Hobbies
 
-Give a chance with bass, nailed it on the drums, blown away by Art History
+Give a chance with bass, nailed it on the drums, blown away by Art History.
 
 [Download Ece`s CV](assets/documents/Ece%20Cavusgil,cv.pdf)

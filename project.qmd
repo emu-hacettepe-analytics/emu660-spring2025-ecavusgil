@@ -1,40 +1,88 @@
 ---
-title: "Project X"
+title: "Is Ignorance Truly Bliss? Relationship between Education, Gender & Happiness"
+format:
+  html:
+    code-fold: true
+    code-summary: "Show the code"
 ---
 
-Welcome to my/our project page.
+Welcome to my project page.
 
 Keep an eye on this space to stay updated with my project activities.
 
-(The titles below are provided as examples; please feel free to adjust them as necessary.)
-
 # 1. Project Overview and Scope
 
-xxxxxx
+The phrase "[***Ignorance is Bliss***]{.underline}" is a perspective that most of us have come across at least once, and sometimes even found meaningful. Naturally, individuals may have developed and educated themselves regardless of their formal educational background, gaining the ability to view life from different perspectives. However, in this study, the concept of 'ignorance' that I aim to focus on is independent of such interpretations. Instead, it refers to the relationship between a person's level of education and their happiness, as well as how this relationship differs between men and women.
+
+[***Problem Definition***]{.underline}: Life satisfaction among individuals may vary depending on factors such as gender and education level. Therefore, it is necessary to conduct an analysis to examine the direction and magnitude of this interaction and to observe how happiness levels change based on individuals’ gender and educational background. [***The aim***]{.underline} of this study is to reveal whether there is a significant relationship between educational attainment and happiness levels in this context.
 
 # 2. Data
 
-xxxxxx
-
 ## 2.1 Data Source
 
-xxxxxx
+In this study, data obtained from the [Yaşam Memnuniyeti Araştırması](#0) conducted by the Türkiye İstatistik Kurumu (TÜİK) has been used.
 
 ## 2.2 General Information About Data
 
-xxxxxx
+"**education**" data set: This dataset contains the number of individuals by gender and educational status for each province between 2008 and 2023.
+
+```{r}
+#Import education dataset
+
+library(readxl) 
+#education <- read_excel("education.xlsx", skip = 1) 
+#save(education,file = "education.RData")
+load("education.RData")
+head(education)
+```
+
+"**bygender**" data set:This dataset contains the percentages of general happiness levels by gender between 2003 and 2024.
+
+```{r}
+#Import bygender dataset
+#bygender <- read_excel("bygender.xlsx")
+#save(bygender,file = "bygender.RData")
+load("bygender.RData")
+head(bygender)
+```
+
+"**byeducation**" data set:This dataset contains the percentages of general happiness levels by educational status between 2004 and 2024.
+
+```{r}
+#Import byeducation dataset
+#byeducation <- read_excel("byeducation.xlsx")
+#save(byeducation,file = "byeducation.RData")
+load("byeducation.RData")
+head(byeducation)
+```
 
 ## 2.3 Reason of Choice
 
-xxxxxx
+Even in this century, the distinction between women and men is still evident in many areas in Turkey. Undoubtedly, educating individuals is the most effective way to change the position of women in society. And perhaps, in this way, a society that has educated itself reaches the most important value for a person: happiness.
 
 ## 2.4 Preprocessing
 
-xxxxxx
+The datasets used in this study will be merged to facilitate the analysis and will be organized in a way that allows easy processing by the program. If needed during the later stages of the analysis, additional datasets may be incorporated into the study.
 
 # 3. Analysis
 
-xxxxxx
+Questions for Analysis:
+
+-   How has life satisfaction changed over time for men and women?
+
+-   Does the difference in life satisfaction between men and women persist annually?
+
+-   Which education level group reports higher life satisfaction?
+
+-   Does the impact of education on life satisfaction differ by gender?
+
+-   Are university-educated women happier than university-educated men?
+
+-   Is the gap between rural and urban areas narrowing? (or regional)
+
+-   Has there been a dramatic change in life satisfaction after a certain year (e.g., post-pandemic)?
+
+-   In which provinces has the rate of university graduates increased most rapidly?
 
 ## 3.1 Exploratory Data Analysis
 

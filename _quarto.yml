@@ -43,13 +43,14 @@ format:
   html:
     toc: true
     toc-location: left
-    theme: sketchy
+    theme: lux
     light: simplex 
     dark: cyborg
     linkcolor: "#75AADB"
-    fontsize: 1.2em
+    #fontcolor: ""
+    fontsize: 0.5 em
     css: styles.css
-
+    
 
 editor: visual
 
