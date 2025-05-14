@@ -46,11 +46,17 @@ format:
     theme: lux
     light: simplex 
     dark: cyborg
-    linkcolor: "#75AADB"
+    linkcolor: "#9370DB"
     #fontcolor: ""
     fontsize: 0.5 em
     css: styles.css
+    df_print: paged
     
+  pdf:
+    documentclass: article
+    latex-engine: xelatex 
 
 editor: visual
+
+
 

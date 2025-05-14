@@ -1,1 +1,11 @@
 /* css styles */
+
+.highlight-plum {
+  color:#008080;
+  font-style: bold;
+}
+
+.highlight-red {
+  color: darkred;
+  font-style: bold;
+}
