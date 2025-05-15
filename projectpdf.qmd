@@ -18,7 +18,7 @@ format:
 
 The phrase "[**Ignorance is bliss**]{.highlight-plum} is a perspective that most of us have come across at least once, and sometimes even found meaningful. Naturally, individuals may have developed and educated themselves regardless of their formal educational background, gaining the ability to view life from different perspectives. However, in this study, the concept of 'ignorance' that I aim to focus on is independent of such interpretations. Instead, it refers to the relationship between a person's level of education and their happiness, as well as how this relationship differs between men and women.
 
-[**Problem Definition**]{.highlight-plum}: Life satisfaction among individuals may vary depending on factors such as gender and education level. Therefore, it is necessary to conduct an analysis to examine the direction and magnitude of this interaction and to observe how happiness levels change based on individuals’ gender and educational background. [**The aim**]{.highlight-plum} of this study is to reveal whether there is a significant relationship between educational attainment and happiness levels in this context.
+[**Problem Definition**]{.highlight-plum}: Life satisfaction among individuals may vary depending on factors such as gender and education level. Therefore, it is necessary to conduct an analysis to examine the direction and magnitude of this interaction and to observe how happiness levels change based on individuals’ gender and educational background. [**The aim**]{.highlight-plum} of this study is to reveal whether there is a significant relationship between educational attainment,gender and happiness levels in this context.
 
 # 2. Data![](assets/images/data.png){fig-align="left" width="0.5in"}
 
@@ -189,7 +189,7 @@ The variables and their corresponding value ranges in the finalized "byeducation
  str(byeducation)
 ```
 
--   [*Year*]{.underline}: The study year (ranging from 2003 to 2008).
+-   [*Year*]{.underline}: The study year (ranging from 2008 to 2023).
 
 -   [*Happiness_Level*]{.underline}: Levels of happiness ("Unhappy," "Neither Happy nor Unhappy," "Happy").
 
@@ -332,7 +332,7 @@ max_value <- max(harita_veri$Year, na.rm = TRUE)
 p <- ggplot(harita_veri) +
   geom_sf(aes(fill = Total/1000), color = "white") +
   scale_fill_viridis(option = "viridis", name = "Higher Education (10³)",direction = -1) +
-  labs(title = "Top 10 Provinces by Higher Education Attainment For Year: {frame_time}", caption = "Kaynak: education.xlsx") +
+  labs(title = "Top 10 Provinces by Higher Education Attainment For Year: {frame_time}", caption = "Resource: education.xlsx") +
   theme_minimal() +
   transition_time(as.integer(Year))+
   ease_aes("linear")
@@ -353,7 +353,7 @@ p_static <- ggplot(harita_tek_yil) +
   geom_sf(aes(fill = Total / 1000), color = "white") +
   scale_fill_viridis(option = "viridis", name = "Higher Education (10³)", direction = -1) +
   labs(title = paste("Top 10 Provinces by Higher Education Attainment For ", sabit_yil),
-       caption = "Kaynak: education.xlsx") +
+       caption = "Resource: education.xlsx") +
   theme_minimal()
 
 ggsave("higher_education_static.png", plot = p_static, width = 8, height = 6, dpi = 300)
@@ -988,4 +988,4 @@ The key findings from the analysis are summarized below:
 
 1.Turkish Statistical Institute (TURKSTAT). "*Life Satisfaction Survey, 2023"*. Retrieved from <https://data.tuik.gov.tr/> (accessed May, 2025)
 
-2\. Turkish Statistical Institute (TURKSTAT).(2024). "*Population Statics Portal, 2024"*. Retrieved from <https://nip.tuik.gov.tr/> (accessed May, 2025)
+2.Turkish Statistical Institute (TURKSTAT).(2024). "*Population Statics Portal, 2024"*. Retrieved from <https://nip.tuik.gov.tr/> (accessed May, 2025)
