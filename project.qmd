@@ -57,6 +57,8 @@ library(knitr)
 library(gifski)
 library(tidytext)
 library(nortest)
+library(kableExtra)
+#library(DT)
 
 #Import education dataset
 
@@ -132,8 +134,10 @@ The datasets used in this study will be merged to facilitate the analysis and wi
 education$Educational_Status<-factor(education$Educational_Status,levels= c("No School Completed","Primary School","Primary Education or Junior High School","High School or Equivalent","Higher Education"),ordered = TRUE) 
 
 
-
+#education |> kbl() |> kable_styling()
+#datatable(education,filter = "top",options = list(pageLength = 5))
 head(education)
+
 ```
 
 The variables and their corresponding value ranges in the finalized "education" dataset are defined as follows:
@@ -182,8 +186,9 @@ sum(is.na(byeducation))
 
 byeducation<- byeducation |> filter(Year %in% 2008:2023)
 byeducation$Happiness_Level<-factor(byeducation$Happiness_Level,levels= c("Unhappy","Neither happy nor unhappy","Happy"),ordered = TRUE) 
+names(byeducation)[4]<-"Primary School"
 
-  
+byeducation
 head(byeducation)
 ```
 
@@ -226,7 +231,7 @@ Descriptive statistics for the variables are as follows:
 #head(bygender)
 #str(bygender)
 
-sum(is.na(byeducation))
+sum(is.na(bygender))
 
 bygender <- bygender |> filter(Year %in% 2008:2023)|>
   mutate(Happiness_Level = case_when(
@@ -373,10 +378,11 @@ education |>
   group_by(Year) |> 
   slice_max(order_by = Total, n = 10) |> 
   ungroup() |> 
-  ggplot(aes(x = reorder(Province, Total), y = Total / 1000,width = 0.5)) +
+  ggplot(aes(x = reorder_within(Province, Total,Year), y = Total / 1000,width = 0.5)) +
   geom_bar(stat = "identity", fill = "orange") +
   coord_flip() +
   facet_wrap(~Year, scales = "free_y") +
+  scale_x_reordered() +
   labs(
     title = "Top 10 Provinces by Higher Education Attainment (Each Year)",
     x = "Province",
@@ -400,10 +406,11 @@ education |>
   group_by(Year) |> 
   slice_max(order_by = Total, n = 10) |> 
   ungroup() |> 
-  ggplot(aes(x = reorder(Province, Total), y = Total/1000 ,width = 0.5)) +
+  ggplot(aes(x = reorder_within(Province, Total,Year), y = Total/1000 ,width = 0.5)) +
   geom_bar(stat = "identity", fill = "darkgreen") +
   coord_flip() + 
   facet_wrap(~Year, scales = "free_y") +
+  scale_x_reordered() +
   labs(
     title = "Top 10 Provinces by No School Attainment (Each Year)",
     x = "Province",
@@ -556,7 +563,7 @@ Based on the results obtained, the following observations can be made:
 ```{r}
  byeducation |>
   select(everything()) |>
-  pivot_longer(cols = c("No School Completed","Primary  School","Primary Education or Junior High School","High School or Equivalent","Higher Education"), names_to = "Education_Level", values_to = "Percentage") |>ggplot(aes(x = Happiness_Level, y = Percentage, color = Education_Level)) +
+  pivot_longer(cols = c("No School Completed","Primary School","Primary Education or Junior High School","High School or Equivalent","Higher Education"), names_to = "Education_Level", values_to = "Percentage") |>ggplot(aes(x = Happiness_Level, y = Percentage, color = Education_Level)) +
   geom_boxplot() +
   labs(title = "Happy percentage vs Education Level",
        x = "Happiness_Level", y = "Percentage (%)", color = "Education_Level") +
@@ -740,13 +747,13 @@ Based on the analysis provided below, the following observations can be made:
 ```{r}
 
 edu_happy <- byeducation |>
-  filter(Happiness_Level=="Happy")|>pivot_longer(c(`No School Completed`,`Primary  School`,`Primary Education or Junior High School`,`High School or Equivalent`,`Higher Education`),
+  filter(Happiness_Level=="Happy")|>pivot_longer(c(`No School Completed`,`Primary School`,`Primary Education or Junior High School`,`High School or Equivalent`,`Higher Education`),
                names_to  = "Educational_Status",
                values_to = "Percentage") 
 
 edu_happy$Educational_Status <- factor(
   edu_happy$Educational_Status,
-  levels = c("No School Completed","Primary  School","Primary Education or Junior High School","High School or Equivalent","Higher Education",order=TRUE)
+  levels = c("No School Completed","Primary School","Primary Education or Junior High School","High School or Equivalent","Higher Education",order=TRUE)
 )
 ggplot(edu_happy, aes(x = Year, y = Percentage, color = Educational_Status)) +
  geom_point() +
@@ -776,13 +783,13 @@ The same analysis has been conducted for the "Unhappy" happiness level, and the 
 ```{r}
 
 edu_unhappy <- byeducation |>
-  filter(Happiness_Level=="Unhappy")|>pivot_longer(c(`No School Completed`,`Primary  School`,`Primary Education or Junior High School`,`High School or Equivalent`,`Higher Education`),
+  filter(Happiness_Level=="Unhappy")|>pivot_longer(c(`No School Completed`,`Primary School`,`Primary Education or Junior High School`,`High School or Equivalent`,`Higher Education`),
                names_to  = "Educational_Status",
                values_to = "Percentage") 
 
 edu_unhappy$Educational_Status <- factor(
   edu_unhappy$Educational_Status,
-  levels = c("No School Completed","Primary  School","Primary Education or Junior High School","High School or Equivalent","Higher Education",order=TRUE)
+  levels = c("No School Completed","Primary School","Primary Education or Junior High School","High School or Equivalent","Higher Education",order=TRUE)
 )
 ggplot(edu_unhappy, aes(x = Year, y = Percentage, color = Educational_Status)) +
  geom_point() +
@@ -807,11 +814,11 @@ In this section, the primary objective of the research will be addressed by stat
 
 -   [***Question: Is there a significant difference between educational level and happiness level? (using the "byeducation" dataset)***]{.highlight-plum}
 
-According to the Chi-square test, the [**p-value is 2.2e-16**]{.highlight-red}, which is less than 0.05. Therefore, it can be concluded that happiness levels are [**significantly**]{.highlight-red} associated with [**education level**]{.highlight-red}.
+According to the Chi-square test\[3\], the [**p-value is 2.2e-16**]{.highlight-red}, which is less than 0.05. Therefore, it can be concluded that happiness levels are [**significantly**]{.highlight-red} associated with [**education level**]{.highlight-red}.
 
 ```{r}
 #
-df<- byeducation |> pivot_longer(c(`No School Completed`,`Primary  School`,`Primary Education or Junior High School`,`High School or Equivalent`,`Higher Education`),
+df<- byeducation |> pivot_longer(c(`No School Completed`,`Primary School`,`Primary Education or Junior High School`,`High School or Equivalent`,`Higher Education`),
                names_to  = "Educational_Status",
                values_to = "Percentage") |>
  mutate(Estimated_Count = round(Percentage * 1000 / 100))
@@ -829,7 +836,7 @@ chisq.test(contingency_matrix)
 
 ```
 
--   [***Question: Is there a significant difference between educational level and gender? (using the "bygender" dataset)***]{.highlight-plum}
+-   [***Question: Is there a significant difference between gender and happiness level? (using the "bygender" dataset)***]{.highlight-plum}
 
 According to the Chi-square test, the [**p-value is 2.2e-16**]{.highlight-red}, which is less than 0.05. Therefore, it can be concluded that happiness levels are [**significantly**]{.highlight-red} associated with [**gender**]{.highlight-red}.
 
@@ -869,7 +876,7 @@ Based on the results, when comparing the Akaike Information Criterion (AIC) valu
 
 Accordingly, the final model should include the statistically [**significant**]{.highlight-red} education levels — [**Primary Education or Junior High School**]{.highlight-red}, [**High School**]{.highlight-red}, and [**Higher Education**]{.highlight-red} — as well as their [**interactions with the year**]{.highlight-red} variable. Since the "Education_Level" variable is categorical, a reference category is selected when constructing the model, which is typically the first level. In this case, the reference category is the "No School Completed" category. The "Intercept"(β₀) value in the model output represents the average happiness percentage for "No School Completed" category, while the Other coefficients represent the difference between the average happiness percentage of the relevant education level and that of the 'No School Completed' category
 
-The adequacy of the model was validated by analyzing whether the residuals conform to a normal distribution with Q-Q Plot and Anderson-Darling Normality Test.
+The adequacy of the model was validated by analyzing whether the residuals conform to a normal distribution with Q-Q Plot and Anderson-Darling Normality Test \[6\].
 
 ```{r}
 happy_df_byeducation  <- byeducation|>
@@ -880,7 +887,7 @@ happy_df_byeducation  <- byeducation|>
   ) |>
   filter(Happiness_Level == "Happy")|>
 mutate(Education_Level = factor(Education_Level, 
-                                  levels = c("No School Completed","Primary  School","Primary Education or Junior High School","High School or Equivalent","Higher Education",order=TRUE)
+                                  levels = c("No School Completed","Primary School","Primary Education or Junior High School","High School or Equivalent","Higher Education",order=TRUE)
 ))
 
 model1 <- lm(Percentage ~ Education_Level, data = happy_df_byeducation)
@@ -912,6 +919,18 @@ residuals <- resid(model3)
 
 ad_test_results <- ad.test(residuals)
 print(ad_test_results)
+
+
+ornek<-data.frame(Education_Level = factor(
+    c("No School Completed",
+      "Primary School",
+      "Primary Education or Junior High School",
+      "High School or Equivalent",
+      "Higher Education"),
+    levels = levels(happy_df_byeducation$Education_Level)
+  )
+)
+predict(model1, newdata = ornek)
 ```
 
 **Gender-Based Happiness Level Prediction Model;**
@@ -924,7 +943,7 @@ The prediction model for happiness percentages based on gender can be establishe
 
 -   [**Model 3**]{.highlight-red} adds the [**interaction**]{.highlight-red} between gender and time to the prediction model.
 
-Based on the results, when the AIC (Akaike Information Criterion) values of the models are compared, it is observed that the model that best explains the data is [**Model 2, which has the lowest AIC value**]{.highlight-red}. Therefore, it can be concluded that the effect of the year should be included in the constructed prediction model.
+Based on the results, when the AIC (Akaike Information Criterion) \[4\] values of the models are compared, it is observed that the model that best explains the data is [**Model 2, which has the lowest AIC value**]{.highlight-red}. Therefore, it can be concluded that the effect of the year should be included in the constructed prediction model.
 
 Thus, in the prediction model for happiness percentage, the significant variables, [**"GenderFemale"**]{.highlight-red} (which takes a value of 0 for Male and 1 for Female) and [**"Year"**]{.highlight-red}, should be [**included**]{.highlight-red}. Since the "Gender" variable is categorical, a reference category is selected when constructing the model, which is typically the first level. In this case, the reference category is the "Male" category. The "Intercept"(β₀) value in the model output represents the average happiness percentage for males, while the "GenderFemale" coefficient indicates the difference in the average happiness percentage between females and males.
 
@@ -986,10 +1005,24 @@ The key findings from the analysis are summarized below:
 
 -   To estimate happiness percentages, various regression models were developed based on gender and education level. Models including both main effects and interaction terms for relevant factors were compared. The best-fitting model was identified based on the Akaike Information Criterion (AIC). In the [**gender-based model**]{.highlight-red}, the inclusion of the time variable (year) alongside [**gender improved the model**]{.highlight-red} fit. In the education-level model, main effects for primary school, high school, and higher education levels, as well as their interactions with time, were included in the model specification.
 
+According to these results, it is seen that educational disadvantage, especially in recent years, affects not only women but also men. The reasons for this should be considered from different perspectives and steps should be taken towards a solution. The level of education that individuals have creates a difference in their perspective and expectations on life and the level of happiness they define themselves in this way changes to a great extent. The fact that the percentage of people who do not receive any education feeling unhappy has increased over time, even if only slightly, has actually proven the saying that ignorance is bliss, the meaning of which we examine from a different perspective. Although women seem happier in general in the country, it should be approached with skepticism as to whether this reflects the truth in the living conditions we live in. When approached with this suspicion, the real truth is that the difference in happiness between men and women decreases over time, and women feel unhappier day by day.
+
 \*Assistance from ChatGPT was utilized at certain parts of this study.
+
+A PDF version of this page is available for download [here](assets/documents/Project.pdf).
+
+The mini research paper related to this study can be accessed [here](assets/documents/Paper.pdf).
 
 # References
 
 1.Turkish Statistical Institute (TURKSTAT). "*Life Satisfaction Survey, 2023"*. Retrieved from <https://data.tuik.gov.tr/> (accessed May, 2025)
 
 2.Turkish Statistical Institute (TURKSTAT).(2024). "*Population Statics Portal, 2024"*. Retrieved from <https://nip.tuik.gov.tr/> (accessed May, 2025)
+
+3.K. Pearson, “*On the criterion that a given system of deviations from the probable in the case of a correlated system of variables is such that it can be reasonably supposed to have arisen from random sampling,*” The London, Edinburgh, and Dublin Philosophical Magazine and Journal of Science, vol. 50, no. 302, pp. 157–175, 1900.
+
+4.H. Akaike, “*A new look at the statistical model identification,*” IEEE Transactions on Automatic Control, vol. 19, no. 6, pp. 716–723, 1974.
+
+5.D. Firth and R. Menezes, “*Quasi-variances,*” Biometrika, vol. 91, no. 1, pp. 65–80, 2004.
+
+6.T. W. Anderson and D. A. Darling, “*A test of goodness of fit,*” Journal of the American Statistical Association, vol. 49, no. 268, pp. 765–769, 1954.
