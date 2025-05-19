@@ -7,8 +7,7 @@ format:
     css: styles.css
     code-copy: true
     embed-resources: true
-    
-  pdf: 
+  pdf:
     colorlinks: true
     papersize: a4
     fontsize: 11pt
@@ -369,6 +368,9 @@ p_static <- ggplot(harita_tek_yil) +
 ggsave("higher_education_static.png", plot = p_static, width =8 , height = 6, dpi = 300)
 }
 include_graphics("animation.gif")
+
+```
+```{r}
 include_graphics("higher_education_static.png")
 ```
 
@@ -520,6 +522,10 @@ p_static <- ggplot(harita_veri) +
 ggsave("female_male_static.png", plot = p_static, width = 8, height = 6, dpi = 300)
 }
 include_graphics("animation1.gif")
+
+```
+
+```{r}
 include_graphics("female_male_static.png")
 ```
 
@@ -883,7 +889,7 @@ A predictive model for estimating the percentage of individuals who report being
 
 Based on the results, when comparing the Akaike Information Criterion (AIC) values of the models, [**Model 3**]{.highlight-red} was found to have the [**lowest AIC**]{.highlight-red}, indicating the [**best fit to the data**]{.highlight-red}. This suggests that the [**interaction between education level and year should be included**]{.highlight-red} in the predictive model for estimating happiness levels.
 
-Accordingly, the final model should include the statistically [**significant**]{.highlight-red} education levels — [**Primary Education or Junior High School**]{.highlight-red}, [**High School**]{.highlight-red}, and [**Higher Education**]{.highlight-red} — as well as their [**interactions with the year**]{.highlight-red} variable. Since the "Education_Level" variable is categorical, a reference category is selected when constructing the model, which is typically the first level. In this case, the reference category is the "No School Completed" category. The "Intercept"(β₀) value in the model output represents the average happiness percentage for "No School Completed" category, while the Other coefficients represent the difference between the average happiness percentage of the relevant education level and that of the 'No School Completed' category. 
+Accordingly, the final model should include the statistically [**significant**]{.highlight-red} education levels — [**Primary Education or Junior High School**]{.highlight-red}, [**High School**]{.highlight-red}, and [**Higher Education**]{.highlight-red} — as well as their [**interactions with the year**]{.highlight-red} variable. Since the "Education_Level" variable is categorical, a reference category is selected when constructing the model, which is typically the first level. In this case, the reference category is the "No School Completed" category. The "Intercept"(β₀) value in the model output represents the average happiness percentage for "No School Completed" category, while the Other coefficients represent the difference between the average happiness percentage of the relevant education level and that of the 'No School Completed' category.
 
 According to the model created, the percentages of happiness by education levels between 2024 and 2028 are estimated as follows and shown on the graph. Parallel to previous findings, it is predicted that happiness rates will decrease for all education levels.
 
@@ -964,13 +970,11 @@ The prediction model for happiness percentages based on gender can be establishe
 
 Based on the results, when the AIC (Akaike Information Criterion) \[4\] values of the models are compared, it is observed that the model that best explains the data is [**Model 2, which has the lowest AIC value**]{.highlight-red}. Therefore, it can be concluded that the effect of the year should be included in the constructed prediction model.
 
-Thus, in the prediction model for happiness percentage, the significant variables, [**"GenderFemale"**]{.highlight-red} (which takes a value of 0 for Male and 1 for Female) and [**"Year"**]{.highlight-red}, should be [**included**]{.highlight-red}. Since the "Gender" variable is categorical, a reference category is selected when constructing the model, which is typically the first level. In this case, the reference category is the "Male" category. The "Intercept"(β₀) value in the model output represents the average happiness percentage for males, while the "GenderFemale" coefficient indicates the difference in the average happiness percentage between females and males. 
+Thus, in the prediction model for happiness percentage, the significant variables, [**"GenderFemale"**]{.highlight-red} (which takes a value of 0 for Male and 1 for Female) and [**"Year"**]{.highlight-red}, should be [**included**]{.highlight-red}. Since the "Gender" variable is categorical, a reference category is selected when constructing the model, which is typically the first level. In this case, the reference category is the "Male" category. The "Intercept"($\beta_0$) value in the model output represents the average happiness percentage for males, while the "GenderFemale" coefficient indicates the difference in the average happiness percentage between females and males.
 
 According to the model created, the percentages of happiness by gender between 2024 and 2028 are estimated as follows and shown on the graph.Parallel to previous findings, it is predicted that happiness rates will decrease for both genders.
 
 The adequacy of the model was validated by analyzing whether the residuals conform to a normal distribution with Q-Q Plot and Anderson-Darling Normality Test.
-
-
 
 ```{r}
 happy_df_bygender  <- bygender|>

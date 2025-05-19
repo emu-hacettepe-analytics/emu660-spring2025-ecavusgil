@@ -206,7 +206,6 @@
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
   pdftitle={Is Ignorance Truly Bliss? Relationship between Education, Gender \& Happiness},
-  pdfauthor={Ece Cavusgil},
   colorlinks=true,
   linkcolor={blue},
   filecolor={Maroon},
@@ -217,7 +216,7 @@
 
 \title{Is Ignorance Truly Bliss? Relationship between Education, Gender
 \& Happiness}
-\author{Ece Cavusgil}
+\author{}
 \date{}
 
 \begin{document}
@@ -917,6 +916,14 @@ made:
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{"higher\_education\_static.png"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=8in,height=\textheight,keepaspectratio]{higher_education_static.png}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{\#Top 10 Provinces by Higher Education Attainment (Each Year)}
 \NormalTok{education }\SpecialCharTok{|\textgreater{}} 
   \FunctionTok{filter}\NormalTok{(Educational\_Status }\SpecialCharTok{==} \StringTok{"Higher Education"}\NormalTok{) }\SpecialCharTok{|\textgreater{}} 
@@ -938,7 +945,7 @@ made:
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-14-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-15-1.pdf}}
 
 Based on the graphs presented below, several observations can be made:
 
@@ -977,7 +984,7 @@ Based on the graphs presented below, several observations can be made:
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-15-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-16-1.pdf}}
 
 After examining the number of individuals with no formal education and
 those with higher education across provinces, the next step involves
@@ -993,6 +1000,14 @@ begun to surpass that of women}} in many provinces.
 
 Does this observation indicate that the educational disadvantage has
 shifted over time to affect men more significantly?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{"female\_male\_static.png"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=8in,height=\textheight,keepaspectratio]{female_male_static.png}
 
 To further investigate the findings from the map above, we can examine
 the gender distribution across different education levels (aggregated
@@ -1024,7 +1039,7 @@ in certain regions.
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-17-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-19-1.pdf}}
 
 To provide a more detailed analysis of the ``byeducation'' dataset, the
 following questions will be examined.
@@ -1068,7 +1083,7 @@ Based on the results obtained, the following observations can be made:
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-18-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-20-1.pdf}}
 
 To provide a more detailed analysis of the ``bygender'' dataset, the
 following questions will be examined.
@@ -1109,7 +1124,7 @@ Based on the results obtained, the following observations can be made:
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-19-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-21-1.pdf}}
 
 \subsection{3.2 Trend Analysis}\label{trend-analysis}
 
@@ -1202,7 +1217,7 @@ Based on the chart below, the following observations can be made:
 `geom_smooth()` using formula = 'y ~ x'
 \end{verbatim}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-20-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-22-1.pdf}}
 
 \textbf{Analysis for ``bygender'' dataset}
 
@@ -1253,7 +1268,7 @@ i Please use `linewidth` instead.
 Warning in geom_point(linewidth = 2): Ignoring unknown parameters: `linewidth`
 \end{verbatim}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-21-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-23-1.pdf}}
 
 We can conclude that there is a significant difference between men and
 women in terms of happiness levels. This conclusion can be further
@@ -1303,7 +1318,7 @@ Based on the analysis below, the following observations can be made:
 `geom_smooth()` using formula = 'y ~ x'
 \end{verbatim}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-22-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-24-1.pdf}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1366,7 +1381,7 @@ significant. On average, the difference between men and women in the
 `geom_smooth()` using formula = 'y ~ x'
 \end{verbatim}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-23-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-25-1.pdf}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1473,7 +1488,7 @@ Higher Education & Year & -1.3692589 & 0.1712698 & -7.9947499 & 0.0000014\\
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-24-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-26-1.pdf}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1490,7 +1505,7 @@ Higher Education & Year & -1.3692589 & 0.1712698 & -7.9947499 & 0.0000014\\
 `geom_smooth()` using formula = 'y ~ x'
 \end{verbatim}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-24-2.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-26-2.pdf}}
 
 The same analysis has been conducted for the ``Unhappy'' happiness
 level, and the following results were found:
@@ -1562,7 +1577,7 @@ No School Completed & Year & -0.0656706 & 0.1318412 & -0.4981037 & 0.6261441\\
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-25-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-27-1.pdf}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1579,7 +1594,7 @@ No School Completed & Year & -0.0656706 & 0.1318412 & -0.4981037 & 0.6261441\\
 `geom_smooth()` using formula = 'y ~ x'
 \end{verbatim}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-25-2.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-27-2.pdf}}
 
 \subsection{3.3 Model Fitting}\label{model-fitting}
 
@@ -1788,7 +1803,7 @@ F-statistic: 0.8142 on 4 and 75 DF,  p-value: 0.5201
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-28-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-30-1.pdf}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1910,7 +1925,7 @@ model3 11 447.8703
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-28-2.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-30-2.pdf}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2013,7 +2028,7 @@ Higher Education & 2028 & 40.82275\\
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-28-3.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-30-3.pdf}}
 
 \textbf{Gender-Based Happiness Level Prediction Model;}
 
@@ -2044,8 +2059,8 @@ Male and 1 for Female) and {\textbf{``Year''}}, should be
 {\textbf{included}}. Since the ``Gender'' variable is categorical, a
 reference category is selected when constructing the model, which is
 typically the first level. In this case, the reference category is the
-``Male'' category. The ``Intercept''(β₀) value in the model output
-represents the average happiness percentage for males, while the
+``Male'' category. The ``Intercept''(\(\beta_0\)) value in the model
+output represents the average happiness percentage for males, while the
 ``GenderFemale'' coefficient indicates the difference in the average
 happiness percentage between females and males.
 
@@ -2104,7 +2119,7 @@ F-statistic: 16.89 on 1 and 30 DF,  p-value: 0.0002825
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-29-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-31-1.pdf}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2188,7 +2203,7 @@ model3  5 178.6346
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-29-2.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-31-2.pdf}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2259,7 +2274,7 @@ Female & 2028 & 50.98070\\
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-29-3.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-31-3.pdf}}
 
 \section[4. Results and Key Takeaways \hfill
 ]{\texorpdfstring{4. Results and Key Takeaways
@@ -2345,6 +2360,9 @@ should be approached with skepticism as to whether this reflects the
 truth in the living conditions we live in. When approached with this
 suspicion, the real truth is that the difference in happiness between
 men and women decreases over time, and women feel unhappier day by day.
+And moreover, it is expected that the percentage of people feeling happy
+will decrease in the coming years for all levels of education and
+genders.
 
 *Assistance from ChatGPT was utilized at certain parts of this study.
 

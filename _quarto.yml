@@ -53,7 +53,7 @@ format:
     df_print: paged
     
   pdf:
-     pdf-engine: pdflatex
+     latex-engine: xelatex
 
 editor: visual
 
