@@ -34,18 +34,6 @@ website:
         - assignments.qmd
         - assignments/assignment-1.qmd
         - assignments/assignment-2.qmd  
-  sidebar:
-    - title: "Project"
-      style: "docked"
-      search: true
-      contents:
-      - project.qmd
-      - text: "---"     # separator line
-      - href: assets/documents/Project.pdf
-        text: "📄 Download PDF"
-      - text: "---"     # separator line
-      - href: assets/documents/Paper.pdf
-        text: "📄 Download Paper PDF"
   page-navigation: true
   back-to-top-navigation: true
   page-footer:

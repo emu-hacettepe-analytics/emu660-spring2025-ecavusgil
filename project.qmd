@@ -16,6 +16,7 @@ format:
     margin-right: 2cm
     margin-top: 2cm
     margin-bottom: 2cm
+    author: Ece Cavusgil
 ---
 
 # 1. Project Overview and Scope ![](assets/images/scope.png){fig-align="left" width="0.3in"}
@@ -1044,7 +1045,7 @@ The key findings from the analysis are summarized below:
 
 -   To estimate happiness percentages, various regression models were developed based on gender and education level. Models including both main effects and interaction terms for relevant factors were compared. The best-fitting model was identified based on the Akaike Information Criterion (AIC). In the [**gender-based model**]{.highlight-red}, the inclusion of the time variable (year) alongside [**gender improved the model**]{.highlight-red} fit. In the education-level model, main effects for primary school, high school, and higher education levels, as well as their interactions with time, were included in the model specification.
 
-According to these results, it is seen that educational disadvantage, especially in recent years, affects not only women but also men. The reasons for this should be considered from different perspectives and steps should be taken towards a solution. The level of education that individuals have creates a difference in their perspective and expectations on life and the level of happiness they define themselves in this way changes to a great extent. The fact that the percentage of people who do not receive any education feeling unhappy has increased over time, even if only slightly, has actually proven the saying that ignorance is bliss, the meaning of which we examine from a different perspective. Although women seem happier in general in the country, it should be approached with skepticism as to whether this reflects the truth in the living conditions we live in. When approached with this suspicion, the real truth is that the difference in happiness between men and women decreases over time, and women feel unhappier day by day.
+According to these results, it is seen that educational disadvantage, especially in recent years, affects not only women but also men. The reasons for this should be considered from different perspectives and steps should be taken towards a solution. The level of education that individuals have creates a difference in their perspective and expectations on life and the level of happiness they define themselves in this way changes to a great extent. The fact that the percentage of people who do not receive any education feeling unhappy has increased over time, even if only slightly, has actually proven the saying that ignorance is bliss, the meaning of which we examine from a different perspective. Although women seem happier in general in the country, it should be approached with skepticism as to whether this reflects the truth in the living conditions we live in. When approached with this suspicion, the real truth is that the difference in happiness between men and women decreases over time, and women feel unhappier day by day. And moreover, it is expected that the percentage of people feeling happy will decrease in the coming years for all levels of education and genders.
 
 \*Assistance from ChatGPT was utilized at certain parts of this study.
 
