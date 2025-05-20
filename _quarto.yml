@@ -19,7 +19,10 @@ website:
             href: assignments.qmd
           - text: Project
             href: project.qmd
-            
+   
+    site-url: "https://emu-hacettepe-analytics.github.io/emu660-spring2025-ecavusgil"
+    repo-url: "https://github.com/emu-hacettepe-analytics/emu660-spring2025-ecavusgil"
+
     tools:
       - icon: github
         href: https://github.com/ecavusgil
@@ -56,6 +59,8 @@ format:
      latex-engine: xelatex
 
 editor: visual
+
+
 
 
 
