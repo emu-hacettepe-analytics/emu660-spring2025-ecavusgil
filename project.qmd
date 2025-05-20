@@ -9,20 +9,30 @@ format:
     embed-resources: true
   pdf:
     colorlinks: true
-    papersize: a4
     fontsize: 11pt
-    margin-left: 2cm
-    margin-right: 2cm
-    margin-top: 2cm
-    margin-bottom: 2cm
+    papersize: a4
+    keep-tex: true
+    margin-left: 2.5cm
+    margin-right: 3cm
+    margin-top: 2.5cm
+    margin-bottom: 2.5cm
+    code-overflow: wrap
+    code-font-size: 0.8em
+    fig-align: center
+    fig-width: 6
     author: Ece Cavusgil
 ---
-
 # 1. Project Overview and Scope ![](assets/images/scope.png){fig-align="left" width="0.3in"}
 
 The phrase "[**Ignorance is bliss**]{.highlight-plum} is a perspective that most of us have come across at least once, and sometimes even found meaningful. Naturally, individuals may have developed and educated themselves regardless of their formal educational background, gaining the ability to view life from different perspectives. However, in this study, the concept of 'ignorance' that I aim to focus on is independent of such interpretations. Instead, it refers to the relationship between a person's level of education and their happiness, as well as how this relationship differs between men and women.
 
 [**Problem Definition**]{.highlight-plum}: Life satisfaction among individuals may vary depending on factors such as gender and education level. Therefore, it is necessary to conduct an analysis to examine the direction and magnitude of this interaction and to observe how happiness levels change based on individuals’ gender and educational background. [**The aim**]{.highlight-plum} of this study is to reveal whether there is a significant relationship between educational attainment,gender and happiness levels in this context.
+
+[[**Let's play!!!**](https://www.mentimeter.com/app/presentation/alfuqmuu3euj5y6s55iocifooenoi4vr/edit?question=gornm6irwd6a)]{.highlight-red}
+
+You can also use this code [**8481 4843**]{.highlight-plum} on [*menti.com*]{.underline}.
+
+![](docs/assets/images/qr.png){fig-align="center" width="2in"}
 
 # 2. Data![](assets/images/data.png){fig-align="left" width="0.5in"}
 
@@ -134,7 +144,7 @@ The datasets used in this study will be merged to facilitate the analysis and wi
 education$Educational_Status<-factor(education$Educational_Status,levels= c("No School Completed","Primary School","Primary Education or Junior High School","High School or Equivalent","Higher Education"),ordered = TRUE) 
 
 
-head(education) |> kbl() |> kable_styling(full_width = 5)
+head(education) |> kbl() |> kable_styling(full_width = FALSE, latex_options = "scale_down")
 #datatable(education,filter = "top",options = list(pageLength = 5))
 
 
@@ -188,7 +198,7 @@ byeducation<- byeducation |> filter(Year %in% 2008:2023)
 byeducation$Happiness_Level<-factor(byeducation$Happiness_Level,levels= c("Unhappy","Neither happy nor unhappy","Happy"),ordered = TRUE) 
 names(byeducation)[4]<-"Primary School"
 
-head(byeducation) |> kbl() |> kable_styling(full_width = 5)
+head(byeducation) |> kbl() |> kable_styling(full_width = FALSE, latex_options = "scale_down")
 
 ```
 
@@ -251,7 +261,7 @@ bygender <- bygender |> filter(Year %in% 2008:2023)|>
 bygender$Happiness_Level<-factor(bygender$Happiness_Level,levels= c("Unhappy","Neither happy nor unhappy","Happy"),ordered = TRUE) 
 
   
-head(bygender) |> kbl() |> kable_styling(full_width = 5)
+head(bygender) |> kbl() |> kable_styling(full_width = FALSE, latex_options = "scale_down")
 ```
 
 The variables and their corresponding value ranges in the finalized "bygender" dataset are defined as follows:
@@ -370,6 +380,7 @@ ggsave("higher_education_static.png", plot = p_static, width =8 , height = 6, dp
 include_graphics("animation.gif")
 
 ```
+
 ```{r}
 include_graphics("higher_education_static.png")
 ```
@@ -602,6 +613,21 @@ Based on the results obtained, the following observations can be made:
   
 ```
 
+```{r}
+ bygender |> 
+  select( everything()) |>
+  pivot_longer(cols = c("Total"), names_to = "Gender", values_to = "Percentage") |>ggplot(aes(x = Happiness_Level, y = Percentage, color = Gender)) +
+  geom_boxplot()+
+  labs(title = "Happy percentage vs Gender",
+       x = "Happiness_Level", y = "Percentage (%)", color = "Gender") +
+  theme_minimal()
+
+bygender|> ggplot(aes(x=Happiness_Level,y=Total))+geom_boxplot()+
+  labs(title = "Happy percentage (Total)",
+       x = "Happiness_Level", y = "Percentage (%)") +
+  theme_minimal()
+```
+
 ## 3.2 Trend Analysis
 
 In this section, the behavior of different variables within the datasets over time will be examined. As in previous sections, the datasets will be analyzed separately, and the time-dependent behavior of the variables will be explored by addressing various research questions.
@@ -765,7 +791,7 @@ edu_trends <- edu_happy %>%
   filter(term == "Year") %>%
   arrange(desc(estimate))
 
-edu_trends |> kbl() |> kable_styling()
+edu_trends |> kbl() |> kable_styling(full_width = FALSE, latex_options = "scale_down")
 
 ggplot(edu_happy, aes(x = Year, y = Percentage, color = Educational_Status)) +
   geom_line() +
@@ -807,7 +833,7 @@ edu_trends <- edu_unhappy %>%
   filter(term == "Year") %>%
   arrange(desc(estimate))
 
-edu_trends |> kbl() |> kable_styling()
+edu_trends |> kbl() |> kable_styling(full_width = FALSE, latex_options = "scale_down")
 
 ggplot(edu_unhappy, aes(x = Year, y = Percentage, color = Educational_Status)) +
   geom_line() +
@@ -887,13 +913,13 @@ A predictive model for estimating the percentage of individuals who report being
 
 -   [**Model 3**]{.highlight-red} incorporates the [**interaction**]{.highlight-red} between education level and time.
 
-Based on the results, when comparing the Akaike Information Criterion (AIC) values of the models, [**Model 3**]{.highlight-red} was found to have the [**lowest AIC**]{.highlight-red}, indicating the [**best fit to the data**]{.highlight-red}. This suggests that the [**interaction between education level and year should be included**]{.highlight-red} in the predictive model for estimating happiness levels.
+Based on the results, when comparing the Akaike Information Criterion (AIC)\[4\] values of the models, [**Model 3**]{.highlight-red} was found to have the [**lowest AIC**]{.highlight-red}, indicating the [**best fit to the data**]{.highlight-red}. This suggests that the [**interaction between education level and year should be included**]{.highlight-red} in the predictive model for estimating happiness levels.
 
-Accordingly, the final model should include the statistically [**significant**]{.highlight-red} education levels — [**Primary Education or Junior High School**]{.highlight-red}, [**High School**]{.highlight-red}, and [**Higher Education**]{.highlight-red} — as well as their [**interactions with the year**]{.highlight-red} variable. Since the "Education_Level" variable is categorical, a reference category is selected when constructing the model, which is typically the first level. In this case, the reference category is the "No School Completed" category. The "Intercept"(β₀) value in the model output represents the average happiness percentage for "No School Completed" category, while the Other coefficients represent the difference between the average happiness percentage of the relevant education level and that of the 'No School Completed' category.
+Accordingly, the final model should include the statistically [**significant**]{.highlight-red} education levels — [**Primary Education or Junior High School**]{.highlight-red}, [**High School**]{.highlight-red}, and [**Higher Education**]{.highlight-red} — as well as their [**interactions with the year**]{.highlight-red} variable. Since the "Education_Level" variable is categorical, a reference category is selected when constructing the model\[5\], which is typically the first level. In this case, the reference category is the "No School Completed" category. The "Intercept"($\beta_0$) value in the model output represents the average happiness percentage for "No School Completed" category, while the Other coefficients represent the difference between the average happiness percentage of the relevant education level and that of the 'No School Completed' category.
 
 According to the model created, the percentages of happiness by education levels between 2024 and 2028 are estimated as follows and shown on the graph. Parallel to previous findings, it is predicted that happiness rates will decrease for all education levels.
 
-The adequacy of the model was validated by analyzing whether the residuals conform to a normal distribution with Q-Q Plot and Anderson-Darling Normality Test \[6\].
+The adequacy of the model was validated by analyzing whether the residuals conform to a normal distribution with Q-Q Plot and Anderson-Darling Normality Test\[6\].
 
 ```{r}
 happy_df_byeducation  <- byeducation|>
@@ -949,7 +975,7 @@ edu_predict<-data.frame(Education_Level = factor(
 )
 Prediction<-data.frame(Prediction=predict(model3, newdata = edu_predict))
 edu_predict<-bind_cols(edu_predict,Prediction)
-kbl(edu_predict) |> kable_styling(full_width = 5)
+kbl(edu_predict) |> kable_styling(full_width = FALSE, latex_options = "scale_down")
 ggplot(edu_predict, aes(x = Year, y = Prediction, color = Education_Level)) +
   geom_line() +
   geom_point()+
@@ -974,7 +1000,7 @@ Thus, in the prediction model for happiness percentage, the significant variable
 
 According to the model created, the percentages of happiness by gender between 2024 and 2028 are estimated as follows and shown on the graph.Parallel to previous findings, it is predicted that happiness rates will decrease for both genders.
 
-The adequacy of the model was validated by analyzing whether the residuals conform to a normal distribution with Q-Q Plot and Anderson-Darling Normality Test.
+The adequacy of the model was validated by analyzing whether the residuals conform to a normal distribution with Q-Q Plot and Anderson-Darling Normality \[6\] Test.
 
 ```{r}
 happy_df_bygender  <- bygender|>
@@ -1022,7 +1048,7 @@ gender_predict<-data.frame(Gender = factor(
 )
 Prediction<-data.frame(Prediction=predict(model2, newdata = gender_predict))
 gender_predict<-bind_cols(gender_predict,Prediction)
-kbl(gender_predict) |> kable_styling(full_width = 5)
+kbl(gender_predict) |> kable_styling(full_width = FALSE, latex_options = "scale_down")
 ggplot(gender_predict, aes(x = Year, y = Prediction, color = Gender)) +
   geom_line() +
   geom_point()+
@@ -1047,9 +1073,9 @@ The key findings from the analysis are summarized below:
 
 -   Individuals who identified themselves as [**happy were mostly women**]{.highlight-red}, while those who reported being unhappy were mostly men. In addition, the [**difference**]{.highlight-red} in happiness rates between men and women who reported being happy has [**decreased by an average of 0.24 points per year**]{.highlight-red}. On the other hand, the difference between men and women who reported being unhappy has [**increased by approximately 0.17**]{.highlight-red} points annually.
 
--   To estimate happiness percentages, various regression models were developed based on gender and education level. Models including both main effects and interaction terms for relevant factors were compared. The best-fitting model was identified based on the Akaike Information Criterion (AIC). In the [**gender-based model**]{.highlight-red}, the inclusion of the time variable (year) alongside [**gender improved the model**]{.highlight-red} fit. In the education-level model, main effects for primary school, high school, and higher education levels, as well as their interactions with time, were included in the model specification.
+-   To estimate happiness percentages, various regression models were developed based on gender and education level. Models including both main effects and interaction terms for relevant factors were compared. The best-fitting model was identified based on the Akaike Information Criterion (AIC). In the [**gender-based model**]{.highlight-red}, the inclusion of the time variable (year) alongside [**gender improved the model**]{.highlight-red} fit. In the education-level model, main effects for primary school, high school, and higher education levels, as well as their interactions with time, were included in the model specification. It is estimated that happiness levels will decline between 2024 and 2028, both at all education levels and across all genders, according to the models established.
 
-According to these results, it is seen that educational disadvantage, especially in recent years, affects not only women but also men. The reasons for this should be considered from different perspectives and steps should be taken towards a solution. The level of education that individuals have creates a difference in their perspective and expectations on life and the level of happiness they define themselves in this way changes to a great extent. The fact that the percentage of people who do not receive any education feeling unhappy has increased over time, even if only slightly, has actually proven the saying that ignorance is bliss, the meaning of which we examine from a different perspective. Although women seem happier in general in the country, it should be approached with skepticism as to whether this reflects the truth in the living conditions we live in. When approached with this suspicion, the real truth is that the difference in happiness between men and women decreases over time, and women feel unhappier day by day. And moreover, it is expected that the percentage of people feeling happy will decrease in the coming years for all levels of education and genders.
+According to these results, it is seen that educational disadvantage, especially in recent years, affects not only women but also men. The reasons for this should be considered from different perspectives and steps should be taken towards a solution. The level of education that individuals have creates a difference in their perspective and expectations on life and the level of happiness they define themselves in this way changes to a great extent. The fact that the percentage of people who do not receive any education feeling unhappy has increased over time, even if only slightly, has actually proven the saying that ignorance is bliss, the meaning of which we examine from a different perspective. Although women seem happier in general in the country and the difference in happiness between men and women decreases over time it should be approached with skepticism as to whether this reflects the truth in the living conditions we live in. In addition, as a result of the established prediction models, it is expected that the percentage of people feeling happy will decrease in the coming years for all levels of education and genders.
 
 \*Assistance from ChatGPT was utilized at certain parts of this study.
 

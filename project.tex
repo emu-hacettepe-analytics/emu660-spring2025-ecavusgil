@@ -41,7 +41,7 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\usepackage[lmargin=2cm,rmargin=2cm,tmargin=2cm,bmargin=2cm]{geometry}
+\usepackage[lmargin=2.5cm,rmargin=3cm,tmargin=2.5cm,bmargin=2.5cm]{geometry}
 \ifLuaTeX
   \usepackage{luacolor}
   \usepackage[soul]{lua-ul}
@@ -206,6 +206,7 @@
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
   pdftitle={Is Ignorance Truly Bliss? Relationship between Education, Gender \& Happiness},
+  pdfauthor={Ece Cavusgil},
   colorlinks=true,
   linkcolor={blue},
   filecolor={Maroon},
@@ -216,7 +217,7 @@
 
 \title{Is Ignorance Truly Bliss? Relationship between Education, Gender
 \& Happiness}
-\author{}
+\author{Ece Cavusgil}
 \date{}
 
 \begin{document}
@@ -246,6 +247,16 @@ based on individuals' gender and educational background. {\textbf{The
 aim}} of this study is to reveal whether there is a significant
 relationship between educational attainment,gender and happiness levels
 in this context.
+
+{\href{https://www.mentimeter.com/app/presentation/alfuqmuu3euj5y6s55iocifooenoi4vr/edit?question=gornm6irwd6a}{\textbf{Let's
+play!!!}}}
+
+You can also use this code {\textbf{8481 4843}} on
+\ul{\emph{menti.com}}.
+
+\begin{center}
+\includegraphics[width=2in,height=\textheight,keepaspectratio]{docs/assets/images/qr.png}
+\end{center}
 
 \section[2. Data\hfill
 ]{\texorpdfstring{2.
@@ -491,11 +502,14 @@ dataset;}
 \NormalTok{education}\SpecialCharTok{$}\NormalTok{Educational\_Status}\OtherTok{\textless{}{-}}\FunctionTok{factor}\NormalTok{(education}\SpecialCharTok{$}\NormalTok{Educational\_Status,}\AttributeTok{levels=} \FunctionTok{c}\NormalTok{(}\StringTok{"No School Completed"}\NormalTok{,}\StringTok{"Primary School"}\NormalTok{,}\StringTok{"Primary Education or Junior High School"}\NormalTok{,}\StringTok{"High School or Equivalent"}\NormalTok{,}\StringTok{"Higher Education"}\NormalTok{),}\AttributeTok{ordered =} \ConstantTok{TRUE}\NormalTok{) }
 
 
-\FunctionTok{head}\NormalTok{(education) }\SpecialCharTok{|\textgreater{}} \FunctionTok{kbl}\NormalTok{() }\SpecialCharTok{|\textgreater{}} \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{full\_width =} \DecValTok{5}\NormalTok{)}
+\FunctionTok{head}\NormalTok{(education) }\SpecialCharTok{|\textgreater{}} \FunctionTok{kbl}\NormalTok{() }\SpecialCharTok{|\textgreater{}} \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{full\_width =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{latex\_options =} \StringTok{"scale\_down"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{tabu} to \linewidth {>{\raggedright}X>{\raggedright}X>{\raggedright}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X}
+\begin{table}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\begin{tabular}[t]{l|l|l|r|r|r|r|r}
 \hline
 Year & Province & Educational\_Status & Total & Male & Female & Percentage\_Male & Percentage\_Female\\
 \hline
@@ -511,7 +525,8 @@ Year & Province & Educational\_Status & Total & Male & Female & Percentage\_Male
 \hline
 2008 & ADIYAMAN & High School or Equivalent & 62867 & 39780 & 23087 & 16.8 & 9.5\\
 \hline
-\end{tabu}
+\end{tabular}}
+\end{table}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -636,11 +651,14 @@ dataset;}
 \NormalTok{byeducation}\SpecialCharTok{$}\NormalTok{Happiness\_Level}\OtherTok{\textless{}{-}}\FunctionTok{factor}\NormalTok{(byeducation}\SpecialCharTok{$}\NormalTok{Happiness\_Level,}\AttributeTok{levels=} \FunctionTok{c}\NormalTok{(}\StringTok{"Unhappy"}\NormalTok{,}\StringTok{"Neither happy nor unhappy"}\NormalTok{,}\StringTok{"Happy"}\NormalTok{),}\AttributeTok{ordered =} \ConstantTok{TRUE}\NormalTok{) }
 \FunctionTok{names}\NormalTok{(byeducation)[}\DecValTok{4}\NormalTok{]}\OtherTok{\textless{}{-}}\StringTok{"Primary School"}
 
-\FunctionTok{head}\NormalTok{(byeducation) }\SpecialCharTok{|\textgreater{}} \FunctionTok{kbl}\NormalTok{() }\SpecialCharTok{|\textgreater{}} \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{full\_width =} \DecValTok{5}\NormalTok{)}
+\FunctionTok{head}\NormalTok{(byeducation) }\SpecialCharTok{|\textgreater{}} \FunctionTok{kbl}\NormalTok{() }\SpecialCharTok{|\textgreater{}} \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{full\_width =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{latex\_options =} \StringTok{"scale\_down"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{tabu} to \linewidth {>{\raggedleft}X>{\raggedright}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X}
+\begin{table}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\begin{tabular}[t]{r|l|r|r|r|r|r}
 \hline
 Year & Happiness\_Level & No School Completed & Primary School & Primary Education or Junior High School & High School or Equivalent & Higher Education\\
 \hline
@@ -656,7 +674,8 @@ Year & Happiness\_Level & No School Completed & Primary School & Primary Educati
 \hline
 2009 & Unhappy & 21.0 & 14.7 & 11.6 & 13.0 & 9.0\\
 \hline
-\end{tabu}
+\end{tabular}}
+\end{table}
 
 The variables and their corresponding value ranges in the finalized
 ``byeducation'' dataset are defined as follows:
@@ -789,11 +808,14 @@ dataset;}
 \NormalTok{bygender}\SpecialCharTok{$}\NormalTok{Happiness\_Level}\OtherTok{\textless{}{-}}\FunctionTok{factor}\NormalTok{(bygender}\SpecialCharTok{$}\NormalTok{Happiness\_Level,}\AttributeTok{levels=} \FunctionTok{c}\NormalTok{(}\StringTok{"Unhappy"}\NormalTok{,}\StringTok{"Neither happy nor unhappy"}\NormalTok{,}\StringTok{"Happy"}\NormalTok{),}\AttributeTok{ordered =} \ConstantTok{TRUE}\NormalTok{) }
 
   
-\FunctionTok{head}\NormalTok{(bygender) }\SpecialCharTok{|\textgreater{}} \FunctionTok{kbl}\NormalTok{() }\SpecialCharTok{|\textgreater{}} \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{full\_width =} \DecValTok{5}\NormalTok{)}
+\FunctionTok{head}\NormalTok{(bygender) }\SpecialCharTok{|\textgreater{}} \FunctionTok{kbl}\NormalTok{() }\SpecialCharTok{|\textgreater{}} \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{full\_width =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{latex\_options =} \StringTok{"scale\_down"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{tabu} to \linewidth {>{\raggedleft}X>{\raggedright}X>{\raggedleft}X>{\raggedleft}X>{\raggedleft}X}
+\begin{table}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\begin{tabular}[t]{r|l|r|r|r}
 \hline
 Year & Happiness\_Level & Total & Male & Female\\
 \hline
@@ -809,7 +831,8 @@ Year & Happiness\_Level & Total & Male & Female\\
 \hline
 2009 & Unhappy & 14.6 & 17.1 & 12.3\\
 \hline
-\end{tabu}
+\end{tabular}}
+\end{table}
 
 The variables and their corresponding value ranges in the finalized
 ``bygender'' dataset are defined as follows:
@@ -1126,6 +1149,31 @@ Based on the results obtained, the following observations can be made:
 
 \pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-21-1.pdf}}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ bygender }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{select}\NormalTok{( }\FunctionTok{everything}\NormalTok{()) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{pivot\_longer}\NormalTok{(}\AttributeTok{cols =} \FunctionTok{c}\NormalTok{(}\StringTok{"Total"}\NormalTok{), }\AttributeTok{names\_to =} \StringTok{"Gender"}\NormalTok{, }\AttributeTok{values\_to =} \StringTok{"Percentage"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}\FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Happiness\_Level, }\AttributeTok{y =}\NormalTok{ Percentage, }\AttributeTok{color =}\NormalTok{ Gender)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{()}\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Happy percentage vs Gender"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Happiness\_Level"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Percentage (\%)"}\NormalTok{, }\AttributeTok{color =} \StringTok{"Gender"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-22-1.pdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{bygender}\SpecialCharTok{|\textgreater{}} \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{Happiness\_Level,}\AttributeTok{y=}\NormalTok{Total))}\SpecialCharTok{+}\FunctionTok{geom\_boxplot}\NormalTok{()}\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Happy percentage (Total)"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Happiness\_Level"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Percentage (\%)"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-22-2.pdf}}
+
 \subsection{3.2 Trend Analysis}\label{trend-analysis}
 
 In this section, the behavior of different variables within the datasets
@@ -1217,7 +1265,7 @@ Based on the chart below, the following observations can be made:
 `geom_smooth()` using formula = 'y ~ x'
 \end{verbatim}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-22-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-23-1.pdf}}
 
 \textbf{Analysis for ``bygender'' dataset}
 
@@ -1268,7 +1316,7 @@ i Please use `linewidth` instead.
 Warning in geom_point(linewidth = 2): Ignoring unknown parameters: `linewidth`
 \end{verbatim}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-23-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-24-1.pdf}}
 
 We can conclude that there is a significant difference between men and
 women in terms of happiness levels. This conclusion can be further
@@ -1318,7 +1366,7 @@ Based on the analysis below, the following observations can be made:
 `geom_smooth()` using formula = 'y ~ x'
 \end{verbatim}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-24-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-25-1.pdf}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1381,7 +1429,7 @@ significant. On average, the difference between men and women in the
 `geom_smooth()` using formula = 'y ~ x'
 \end{verbatim}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-25-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-26-1.pdf}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1456,12 +1504,13 @@ made:
   \FunctionTok{filter}\NormalTok{(term }\SpecialCharTok{==} \StringTok{"Year"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
   \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(estimate))}
 
-\NormalTok{edu\_trends }\SpecialCharTok{|\textgreater{}} \FunctionTok{kbl}\NormalTok{() }\SpecialCharTok{|\textgreater{}} \FunctionTok{kable\_styling}\NormalTok{()}
+\NormalTok{edu\_trends }\SpecialCharTok{|\textgreater{}} \FunctionTok{kbl}\NormalTok{() }\SpecialCharTok{|\textgreater{}} \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{full\_width =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{latex\_options =} \StringTok{"scale\_down"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{table}
 \centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
 \begin{tabular}[t]{l|l|r|r|r|r}
 \hline
 Educational\_Status & term & estimate & std.error & statistic & p.value\\
@@ -1476,7 +1525,7 @@ Primary Education or Junior High School & Year & -0.8840392 & 0.2311315 & -3.824
 \hline
 Higher Education & Year & -1.3692589 & 0.1712698 & -7.9947499 & 0.0000014\\
 \hline
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 \begin{Shaded}
@@ -1488,7 +1537,7 @@ Higher Education & Year & -1.3692589 & 0.1712698 & -7.9947499 & 0.0000014\\
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-26-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-27-1.pdf}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1505,7 +1554,7 @@ Higher Education & Year & -1.3692589 & 0.1712698 & -7.9947499 & 0.0000014\\
 `geom_smooth()` using formula = 'y ~ x'
 \end{verbatim}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-26-2.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-27-2.pdf}}
 
 The same analysis has been conducted for the ``Unhappy'' happiness
 level, and the following results were found:
@@ -1545,12 +1594,13 @@ level, and the following results were found:
   \FunctionTok{filter}\NormalTok{(term }\SpecialCharTok{==} \StringTok{"Year"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
   \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(estimate))}
 
-\NormalTok{edu\_trends }\SpecialCharTok{|\textgreater{}} \FunctionTok{kbl}\NormalTok{() }\SpecialCharTok{|\textgreater{}} \FunctionTok{kable\_styling}\NormalTok{()}
+\NormalTok{edu\_trends }\SpecialCharTok{|\textgreater{}} \FunctionTok{kbl}\NormalTok{() }\SpecialCharTok{|\textgreater{}} \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{full\_width =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{latex\_options =} \StringTok{"scale\_down"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{table}
 \centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
 \begin{tabular}[t]{l|l|r|r|r|r}
 \hline
 Educational\_Status & term & estimate & std.error & statistic & p.value\\
@@ -1565,7 +1615,7 @@ Primary School & Year & 0.1823240 & 0.0966591 & 1.8862576 & 0.0801774\\
 \hline
 No School Completed & Year & -0.0656706 & 0.1318412 & -0.4981037 & 0.6261441\\
 \hline
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 \begin{Shaded}
@@ -1577,7 +1627,7 @@ No School Completed & Year & -0.0656706 & 0.1318412 & -0.4981037 & 0.6261441\\
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-27-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-28-1.pdf}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1594,7 +1644,7 @@ No School Completed & Year & -0.0656706 & 0.1318412 & -0.4981037 & 0.6261441\\
 `geom_smooth()` using formula = 'y ~ x'
 \end{verbatim}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-27-2.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-28-2.pdf}}
 
 \subsection{3.3 Model Fitting}\label{model-fitting}
 
@@ -1716,24 +1766,24 @@ different ways:
 \end{itemize}
 
 Based on the results, when comparing the Akaike Information Criterion
-(AIC) values of the models, {\textbf{Model 3}} was found to have the
-{\textbf{lowest AIC}}, indicating the {\textbf{best fit to the data}}.
-This suggests that the {\textbf{interaction between education level and
-year should be included}} in the predictive model for estimating
-happiness levels.
+(AIC){[}4{]} values of the models, {\textbf{Model 3}} was found to have
+the {\textbf{lowest AIC}}, indicating the {\textbf{best fit to the
+data}}. This suggests that the {\textbf{interaction between education
+level and year should be included}} in the predictive model for
+estimating happiness levels.
 
 Accordingly, the final model should include the statistically
 {\textbf{significant}} education levels --- {\textbf{Primary Education
 or Junior High School}}, {\textbf{High School}}, and {\textbf{Higher
 Education}} --- as well as their {\textbf{interactions with the year}}
 variable. Since the ``Education\_Level'' variable is categorical, a
-reference category is selected when constructing the model, which is
-typically the first level. In this case, the reference category is the
-``No School Completed'' category. The ``Intercept''(β₀) value in the
-model output represents the average happiness percentage for ``No School
-Completed'' category, while the Other coefficients represent the
-difference between the average happiness percentage of the relevant
-education level and that of the `No School Completed' category.
+reference category is selected when constructing the model{[}5{]}, which
+is typically the first level. In this case, the reference category is
+the ``No School Completed'' category. The ``Intercept''(\(\beta_0\))
+value in the model output represents the average happiness percentage
+for ``No School Completed'' category, while the Other coefficients
+represent the difference between the average happiness percentage of the
+relevant education level and that of the `No School Completed' category.
 
 According to the model created, the percentages of happiness by
 education levels between 2024 and 2028 are estimated as follows and
@@ -1742,7 +1792,7 @@ happiness rates will decrease for all education levels.
 
 The adequacy of the model was validated by analyzing whether the
 residuals conform to a normal distribution with Q-Q Plot and
-Anderson-Darling Normality Test {[}6{]}.
+Anderson-Darling Normality Test{[}6{]}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1803,7 +1853,7 @@ F-statistic: 0.8142 on 4 and 75 DF,  p-value: 0.5201
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-30-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-31-1.pdf}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1925,7 +1975,7 @@ model3 11 447.8703
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-30-2.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-31-2.pdf}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1957,11 +2007,14 @@ A = 0.31572, p-value = 0.5353
 \NormalTok{)}
 \NormalTok{Prediction}\OtherTok{\textless{}{-}}\FunctionTok{data.frame}\NormalTok{(}\AttributeTok{Prediction=}\FunctionTok{predict}\NormalTok{(model3, }\AttributeTok{newdata =}\NormalTok{ edu\_predict))}
 \NormalTok{edu\_predict}\OtherTok{\textless{}{-}}\FunctionTok{bind\_cols}\NormalTok{(edu\_predict,Prediction)}
-\FunctionTok{kbl}\NormalTok{(edu\_predict) }\SpecialCharTok{|\textgreater{}} \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{full\_width =} \DecValTok{5}\NormalTok{)}
+\FunctionTok{kbl}\NormalTok{(edu\_predict) }\SpecialCharTok{|\textgreater{}} \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{full\_width =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{latex\_options =} \StringTok{"scale\_down"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{tabu} to \linewidth {>{\raggedright}X>{\raggedleft}X>{\raggedleft}X}
+\begin{table}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\begin{tabular}[t]{l|r|r}
 \hline
 Education\_Level & Year & Prediction\\
 \hline
@@ -2015,7 +2068,8 @@ High School or Equivalent & 2028 & 44.88408\\
 \hline
 Higher Education & 2028 & 40.82275\\
 \hline
-\end{tabu}
+\end{tabular}}
+\end{table}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2028,7 +2082,7 @@ Higher Education & 2028 & 40.82275\\
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-30-3.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-31-3.pdf}}
 
 \textbf{Gender-Based Happiness Level Prediction Model;}
 
@@ -2071,7 +2125,7 @@ rates will decrease for both genders.
 
 The adequacy of the model was validated by analyzing whether the
 residuals conform to a normal distribution with Q-Q Plot and
-Anderson-Darling Normality Test.
+Anderson-Darling Normality {[}6{]} Test.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2119,7 +2173,7 @@ F-statistic: 16.89 on 1 and 30 DF,  p-value: 0.0002825
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-31-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-32-1.pdf}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2203,7 +2257,7 @@ model3  5 178.6346
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-31-2.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-32-2.pdf}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2232,11 +2286,14 @@ A = 0.22885, p-value = 0.793
 \NormalTok{)}
 \NormalTok{Prediction}\OtherTok{\textless{}{-}}\FunctionTok{data.frame}\NormalTok{(}\AttributeTok{Prediction=}\FunctionTok{predict}\NormalTok{(model2, }\AttributeTok{newdata =}\NormalTok{ gender\_predict))}
 \NormalTok{gender\_predict}\OtherTok{\textless{}{-}}\FunctionTok{bind\_cols}\NormalTok{(gender\_predict,Prediction)}
-\FunctionTok{kbl}\NormalTok{(gender\_predict) }\SpecialCharTok{|\textgreater{}} \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{full\_width =} \DecValTok{5}\NormalTok{)}
+\FunctionTok{kbl}\NormalTok{(gender\_predict) }\SpecialCharTok{|\textgreater{}} \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{full\_width =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{latex\_options =} \StringTok{"scale\_down"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{tabu} to \linewidth {>{\raggedright}X>{\raggedleft}X>{\raggedleft}X}
+\begin{table}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\begin{tabular}[t]{l|r|r}
 \hline
 Gender & Year & Prediction\\
 \hline
@@ -2260,7 +2317,8 @@ Male & 2028 & 44.17445\\
 \hline
 Female & 2028 & 50.98070\\
 \hline
-\end{tabu}
+\end{tabular}}
+\end{table}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2274,7 +2332,7 @@ Female & 2028 & 50.98070\\
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-31-3.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-32-3.pdf}}
 
 \section[4. Results and Key Takeaways \hfill
 ]{\texorpdfstring{4. Results and Key Takeaways
@@ -2342,7 +2400,10 @@ The key findings from the analysis are summarized below:
   of the time variable (year) alongside {\textbf{gender improved the
   model}} fit. In the education-level model, main effects for primary
   school, high school, and higher education levels, as well as their
-  interactions with time, were included in the model specification.
+  interactions with time, were included in the model specification. It
+  is estimated that happiness levels will decline between 2024 and 2028,
+  both at all education levels and across all genders, according to the
+  models established.
 \end{itemize}
 
 According to these results, it is seen that educational disadvantage,
@@ -2355,14 +2416,13 @@ in this way changes to a great extent. The fact that the percentage of
 people who do not receive any education feeling unhappy has increased
 over time, even if only slightly, has actually proven the saying that
 ignorance is bliss, the meaning of which we examine from a different
-perspective. Although women seem happier in general in the country, it
+perspective. Although women seem happier in general in the country and
+the difference in happiness between men and women decreases over time it
 should be approached with skepticism as to whether this reflects the
-truth in the living conditions we live in. When approached with this
-suspicion, the real truth is that the difference in happiness between
-men and women decreases over time, and women feel unhappier day by day.
-And moreover, it is expected that the percentage of people feeling happy
-will decrease in the coming years for all levels of education and
-genders.
+truth in the living conditions we live in. In addition, as a result of
+the established prediction models, it is expected that the percentage of
+people feeling happy will decrease in the coming years for all levels of
+education and genders.
 
 *Assistance from ChatGPT was utilized at certain parts of this study.
 
