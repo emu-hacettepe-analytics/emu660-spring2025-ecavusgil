@@ -52,8 +52,6 @@ format:
     css: styles.css
     df_print: paged
     
-  pdf:
-     latex-engine: xelatex
 
 editor: visual
 
