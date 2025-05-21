@@ -229,14 +229,14 @@
 \protect\includegraphics[width=0.3in,height=\textheight,keepaspectratio]{assets/images/scope.png}\hfill
 }{1. Project Overview and Scope }}\label{project-overview-and-scope}
 
-The phrase ``{\textbf{Ignorance is bliss}} is a perspective that most of
-us have come across at least once, and sometimes even found meaningful.
-Naturally, individuals may have developed and educated themselves
-regardless of their formal educational background, gaining the ability
-to view life from different perspectives. However, in this study, the
-concept of `ignorance' that I aim to focus on is independent of such
-interpretations. Instead, it refers to the relationship between a
-person's level of education and their happiness, as well as how this
+The phrase ``{\textbf{Ignorance is bliss}}'' is a perspective that most
+of us have come across at least once, and sometimes even found
+meaningful. Naturally, individuals may have developed and educated
+themselves regardless of their formal educational background, gaining
+the ability to view life from different perspectives. However, in this
+study, the concept of `ignorance' that I aim to focus on is independent
+of such interpretations. Instead, it refers to the relationship between
+a person's level of education and their happiness, as well as how this
 relationship differs between men and women.
 
 {\textbf{Problem Definition}}: Life satisfaction among individuals may
@@ -1151,20 +1151,6 @@ Based on the results obtained, the following observations can be made:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{ bygender }\SpecialCharTok{|\textgreater{}} 
-  \FunctionTok{select}\NormalTok{( }\FunctionTok{everything}\NormalTok{()) }\SpecialCharTok{|\textgreater{}}
-  \FunctionTok{pivot\_longer}\NormalTok{(}\AttributeTok{cols =} \FunctionTok{c}\NormalTok{(}\StringTok{"Total"}\NormalTok{), }\AttributeTok{names\_to =} \StringTok{"Gender"}\NormalTok{, }\AttributeTok{values\_to =} \StringTok{"Percentage"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}\FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Happiness\_Level, }\AttributeTok{y =}\NormalTok{ Percentage, }\AttributeTok{color =}\NormalTok{ Gender)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_boxplot}\NormalTok{()}\SpecialCharTok{+}
-  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Happy percentage vs Gender"}\NormalTok{,}
-       \AttributeTok{x =} \StringTok{"Happiness\_Level"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Percentage (\%)"}\NormalTok{, }\AttributeTok{color =} \StringTok{"Gender"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{theme\_minimal}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-22-1.pdf}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{bygender}\SpecialCharTok{|\textgreater{}} \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{Happiness\_Level,}\AttributeTok{y=}\NormalTok{Total))}\SpecialCharTok{+}\FunctionTok{geom\_boxplot}\NormalTok{()}\SpecialCharTok{+}
   \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Happy percentage (Total)"}\NormalTok{,}
        \AttributeTok{x =} \StringTok{"Happiness\_Level"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Percentage (\%)"}\NormalTok{) }\SpecialCharTok{+}
@@ -1172,7 +1158,7 @@ Based on the results obtained, the following observations can be made:
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-22-2.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{project_files/figure-pdf/unnamed-chunk-22-1.pdf}}
 
 \subsection{3.2 Trend Analysis}\label{trend-analysis}
 
