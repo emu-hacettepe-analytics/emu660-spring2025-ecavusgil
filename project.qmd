@@ -20,7 +20,7 @@ format:
     code-font-size: 0.8em
     fig-align: center
     fig-width: 6
-    latex-engine: xelatex
+    pdf-engine: xelatex
     author: Ece Cavusgil
 ---
 # 1. Project Overview and Scope ![](assets/images/scope.png){fig-align="left" width="0.3in"}
