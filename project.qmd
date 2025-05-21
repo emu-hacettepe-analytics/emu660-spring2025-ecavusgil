@@ -25,7 +25,7 @@ format:
 ---
 # 1. Project Overview and Scope ![](assets/images/scope.png){fig-align="left" width="0.3in"}
 
-The phrase "[**Ignorance is bliss**]{.highlight-plum} is a perspective that most of us have come across at least once, and sometimes even found meaningful. Naturally, individuals may have developed and educated themselves regardless of their formal educational background, gaining the ability to view life from different perspectives. However, in this study, the concept of 'ignorance' that I aim to focus on is independent of such interpretations. Instead, it refers to the relationship between a person's level of education and their happiness, as well as how this relationship differs between men and women.
+The phrase "[**Ignorance is bliss**]{.highlight-plum}" is a perspective that most of us have come across at least once, and sometimes even found meaningful. Naturally, individuals may have developed and educated themselves regardless of their formal educational background, gaining the ability to view life from different perspectives. However, in this study, the concept of 'ignorance' that I aim to focus on is independent of such interpretations. Instead, it refers to the relationship between a person's level of education and their happiness, as well as how this relationship differs between men and women.
 
 [**Problem Definition**]{.highlight-plum}: Life satisfaction among individuals may vary depending on factors such as gender and education level. Therefore, it is necessary to conduct an analysis to examine the direction and magnitude of this interaction and to observe how happiness levels change based on individuals’ gender and educational background. [**The aim**]{.highlight-plum} of this study is to reveal whether there is a significant relationship between educational attainment,gender and happiness levels in this context.
 
@@ -615,13 +615,6 @@ Based on the results obtained, the following observations can be made:
 ```
 
 ```{r}
- bygender |> 
-  select( everything()) |>
-  pivot_longer(cols = c("Total"), names_to = "Gender", values_to = "Percentage") |>ggplot(aes(x = Happiness_Level, y = Percentage, color = Gender)) +
-  geom_boxplot()+
-  labs(title = "Happy percentage vs Gender",
-       x = "Happiness_Level", y = "Percentage (%)", color = "Gender") +
-  theme_minimal()
 
 bygender|> ggplot(aes(x=Happiness_Level,y=Total))+geom_boxplot()+
   labs(title = "Happy percentage (Total)",
